@@ -11,17 +11,17 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(params.permit(:title, :content))
-    puts 'Post has been successfully created.' if @post.save
+    @post.save
   end
 
   def update
     @post = Post.find(params[:id])
-    puts 'Post has been successfully updated.' if @post.update(post_params)
+    @post.update(post_params)
   end
 
   def destroy
     @post = Post.find(params[:id])
-    puts 'Post has been successfully deleted.' if @post.destroy
+    @post.destroy
   end
 
   private
