@@ -1,0 +1,3446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Action Controller: Exception caught</title>
+  <style>
+    body {
+      background-color: #FAFAFA;
+      color: #333;
+      margin: 0px;
+    }
+
+    body, p, ol, ul, td {
+      font-family: helvetica, verdana, arial, sans-serif;
+      font-size:   13px;
+      line-height: 18px;
+    }
+
+    pre {
+      font-size: 11px;
+      white-space: pre-wrap;
+    }
+
+    pre.box {
+      border: 1px solid #EEE;
+      padding: 10px;
+      margin: 0px;
+      width: 958px;
+    }
+
+    header {
+      color: #F0F0F0;
+      background: #C52F24;
+      padding: 0.5em 1.5em;
+    }
+
+    h1 {
+      margin: 0.2em 0;
+      line-height: 1.1em;
+      font-size: 2em;
+    }
+
+    h2 {
+      color: #C52F24;
+      line-height: 25px;
+    }
+
+    .details {
+      border: 1px solid #D0D0D0;
+      border-radius: 4px;
+      margin: 1em 0px;
+      display: block;
+      width: 978px;
+    }
+
+    .summary {
+      padding: 8px 15px;
+      border-bottom: 1px solid #D0D0D0;
+      display: block;
+    }
+
+    .details pre {
+      margin: 5px;
+      border: none;
+    }
+
+    #container {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 0 1.5em;
+    }
+
+    .source * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .source {
+      border: 1px solid #D9D9D9;
+      background: #ECECEC;
+      width: 978px;
+    }
+
+    .source pre {
+      padding: 10px 0px;
+      border: none;
+    }
+
+    .source .data {
+      font-size: 80%;
+      overflow: auto;
+      background-color: #FFF;
+    }
+
+    .info {
+      padding: 0.5em;
+    }
+
+    .source .data .line_numbers {
+      background-color: #ECECEC;
+      color: #AAA;
+      padding: 1em .5em;
+      border-right: 1px solid #DDD;
+      text-align: right;
+    }
+
+    .line {
+      padding-left: 10px;
+    }
+
+    .line:hover {
+      background-color: #F6F6F6;
+    }
+
+    .line.active {
+      background-color: #FFCCCC;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    a { color: #980905; }
+    a:visited { color: #666; }
+    a.trace-frames { color: #666; }
+    a:hover { color: #C52F24; }
+    a.trace-frames.selected { color: #C52F24 }
+
+    
+  </style>
+
+  <script>
+    var toggle = function(id) {
+      var s = document.getElementById(id).style;
+      s.display = s.display == 'none' ? 'block' : 'none';
+      return false;
+    }
+    var show = function(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+    var hide = function(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+    var toggleTrace = function() {
+      return toggle('blame_trace');
+    }
+    var toggleSessionDump = function() {
+      return toggle('session_dump');
+    }
+    var toggleEnvDump = function() {
+      return toggle('env_dump');
+    }
+  </script>
+</head>
+<body>
+
+<header>
+  <h1>
+    ActionController::InvalidAuthenticityToken
+      in PostsController#create
+  </h1>
+</header>
+
+<div id="container">
+  <h2>ActionController::InvalidAuthenticityToken</h2>
+
+      <div class="source " id="frame-source-0">
+      <div class="info">
+        Extracted source (around line <strong>#195</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>193</span>
+<span>194</span>
+<span>195</span>
+<span>196</span>
+<span>197</span>
+<span>198</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">        def handle_unverified_request
+</div><div class="line active">          raise ActionController::InvalidAuthenticityToken
+</div><div class="line">        end
+</div><div class="line">      end
+</div><div class="line">    end
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-1">
+      <div class="info">
+        Extracted source (around line <strong>#227</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>225</span>
+<span>226</span>
+<span>227</span>
+<span>228</span>
+<span>229</span>
+<span>230</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">      def handle_unverified_request # :doc:
+</div><div class="line active">        forgery_protection_strategy.new(self).handle_unverified_request
+</div><div class="line">      end
+</div><div class="line">
+</div><div class="line">      #:nodoc:
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-2">
+      <div class="info">
+        Extracted source (around line <strong>#222</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>220</span>
+<span>221</span>
+<span>222</span>
+<span>223</span>
+<span>224</span>
+<span>225</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">            end
+</div><div class="line">          end
+</div><div class="line active">          handle_unverified_request
+</div><div class="line">        end
+</div><div class="line">      end
+</div><div class="line">
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-3">
+      <div class="info">
+        Extracted source (around line <strong>#413</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>411</span>
+<span>412</span>
+<span>413</span>
+<span>414</span>
+<span>415</span>
+<span>416</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">          lambda do |target, value, &amp;block|
+</div><div class="line">            target, block, method, *arguments = expand(target, value, block)
+</div><div class="line active">            target.send(method, *arguments, &amp;block)
+</div><div class="line">          end
+</div><div class="line">        end
+</div><div class="line">
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-4">
+      <div class="info">
+        Extracted source (around line <strong>#197</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>195</span>
+<span>196</span>
+<span>197</span>
+<span>198</span>
+<span>199</span>
+<span>200</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">              unless halted
+</div><div class="line active">                result_lambda = -&gt; { user_callback.call target, value }
+</div><div class="line">                env.halted = halted_lambda.call(target, result_lambda)
+</div><div class="line">
+</div><div class="line">                if env.halted
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-5">
+      <div class="info">
+        Extracted source (around line <strong>#12</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>10</span>
+<span>11</span>
+<span>12</span>
+<span>13</span>
+<span>14</span>
+<span>15</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">    included do
+</div><div class="line">      define_callbacks :process_action,
+</div><div class="line active">                       terminator: -&gt;(controller, result_lambda) { result_lambda.call if result_lambda.is_a?(Proc); controller.performed? },
+</div><div class="line">                       skip_after_callbacks_if_terminated: true
+</div><div class="line">    end
+</div><div class="line">
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-6">
+      <div class="info">
+        Extracted source (around line <strong>#198</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>196</span>
+<span>197</span>
+<span>198</span>
+<span>199</span>
+<span>200</span>
+<span>201</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">              unless halted
+</div><div class="line">                result_lambda = -&gt; { user_callback.call target, value }
+</div><div class="line active">                env.halted = halted_lambda.call(target, result_lambda)
+</div><div class="line">
+</div><div class="line">                if env.halted
+</div><div class="line">                  target.send :halted_callback_hook, filter
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-7">
+      <div class="info">
+        Extracted source (around line <strong>#507</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>505</span>
+<span>506</span>
+<span>507</span>
+<span>508</span>
+<span>509</span>
+<span>510</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">        def invoke_before(arg)
+</div><div class="line active">          @before.each { |b| b.call(arg) }
+</div><div class="line">        end
+</div><div class="line">
+</div><div class="line">        def invoke_after(arg)
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-8">
+      <div class="info">
+        Extracted source (around line <strong>#507</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>505</span>
+<span>506</span>
+<span>507</span>
+<span>508</span>
+<span>509</span>
+<span>510</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">        def invoke_before(arg)
+</div><div class="line active">          @before.each { |b| b.call(arg) }
+</div><div class="line">        end
+</div><div class="line">
+</div><div class="line">        def invoke_after(arg)
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-9">
+      <div class="info">
+        Extracted source (around line <strong>#507</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>505</span>
+<span>506</span>
+<span>507</span>
+<span>508</span>
+<span>509</span>
+<span>510</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">        def invoke_before(arg)
+</div><div class="line active">          @before.each { |b| b.call(arg) }
+</div><div class="line">        end
+</div><div class="line">
+</div><div class="line">        def invoke_after(arg)
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-10">
+      <div class="info">
+        Extracted source (around line <strong>#130</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>128</span>
+<span>129</span>
+<span>130</span>
+<span>131</span>
+<span>132</span>
+<span>133</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">        # Common case: no &#39;around&#39; callbacks defined
+</div><div class="line">        if next_sequence.final?
+</div><div class="line active">          next_sequence.invoke_before(env)
+</div><div class="line">          env.value = !env.halted &amp;&amp; (!block_given? || yield)
+</div><div class="line">          next_sequence.invoke_after(env)
+</div><div class="line">          env.value
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-11">
+      <div class="info">
+        Extracted source (around line <strong>#19</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>17</span>
+<span>18</span>
+<span>19</span>
+<span>20</span>
+<span>21</span>
+<span>22</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">    # process_action callbacks around the normal behavior.
+</div><div class="line">    def process_action(*args)
+</div><div class="line active">      run_callbacks(:process_action) do
+</div><div class="line">        super
+</div><div class="line">      end
+</div><div class="line">    end
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-12">
+      <div class="info">
+        Extracted source (around line <strong>#20</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>18</span>
+<span>19</span>
+<span>20</span>
+<span>21</span>
+<span>22</span>
+<span>23</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">    private
+</div><div class="line">      def process_action(*args)
+</div><div class="line active">        super
+</div><div class="line">      rescue Exception =&gt; exception
+</div><div class="line">        request.env[&quot;action_dispatch.show_detailed_exceptions&quot;] ||= show_detailed_exceptions?
+</div><div class="line">        rescue_with_handler(exception) || raise
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-13">
+      <div class="info">
+        Extracted source (around line <strong>#32</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>30</span>
+<span>31</span>
+<span>32</span>
+<span>33</span>
+<span>34</span>
+<span>35</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">      ActiveSupport::Notifications.instrument(&quot;process_action.action_controller&quot;, raw_payload) do |payload|
+</div><div class="line">        begin
+</div><div class="line active">          result = super
+</div><div class="line">          payload[:status] = response.status
+</div><div class="line">          result
+</div><div class="line">        ensure
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-14">
+      <div class="info">
+        Extracted source (around line <strong>#166</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>164</span>
+<span>165</span>
+<span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">      def instrument(name, payload = {})
+</div><div class="line">        if notifier.listening?(name)
+</div><div class="line active">          instrumenter.instrument(name, payload) { yield payload if block_given? }
+</div><div class="line">        else
+</div><div class="line">          yield payload if block_given?
+</div><div class="line">        end
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-15">
+      <div class="info">
+        Extracted source (around line <strong>#21</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>19</span>
+<span>20</span>
+<span>21</span>
+<span>22</span>
+<span>23</span>
+<span>24</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">        listeners_state = start name, payload
+</div><div class="line">        begin
+</div><div class="line active">          yield payload
+</div><div class="line">        rescue Exception =&gt; e
+</div><div class="line">          payload[:exception] = [e.class.name, e.message]
+</div><div class="line">          payload[:exception_object] = e
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-16">
+      <div class="info">
+        Extracted source (around line <strong>#166</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>164</span>
+<span>165</span>
+<span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">      def instrument(name, payload = {})
+</div><div class="line">        if notifier.listening?(name)
+</div><div class="line active">          instrumenter.instrument(name, payload) { yield payload if block_given? }
+</div><div class="line">        else
+</div><div class="line">          yield payload if block_given?
+</div><div class="line">        end
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-17">
+      <div class="info">
+        Extracted source (around line <strong>#30</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>28</span>
+<span>29</span>
+<span>30</span>
+<span>31</span>
+<span>32</span>
+<span>33</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">      ActiveSupport::Notifications.instrument(&quot;start_processing.action_controller&quot;, raw_payload.dup)
+</div><div class="line">
+</div><div class="line active">      ActiveSupport::Notifications.instrument(&quot;process_action.action_controller&quot;, raw_payload) do |payload|
+</div><div class="line">        begin
+</div><div class="line">          result = super
+</div><div class="line">          payload[:status] = response.status
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-18">
+      <div class="info">
+        Extracted source (around line <strong>#252</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>250</span>
+<span>251</span>
+<span>252</span>
+<span>253</span>
+<span>254</span>
+<span>255</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">        request.filtered_parameters.merge! wrapped_filtered_hash
+</div><div class="line">      end
+</div><div class="line active">      super
+</div><div class="line">    end
+</div><div class="line">
+</div><div class="line">    private
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-19">
+      <div class="info">
+        Extracted source (around line <strong>#22</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>20</span>
+<span>21</span>
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">        # and it won&#39;t be cleaned up by the method below.
+</div><div class="line">        ActiveRecord::LogSubscriber.reset_runtime
+</div><div class="line active">        super
+</div><div class="line">      end
+</div><div class="line">
+</div><div class="line">      def cleanup_view_runtime
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-20">
+      <div class="info">
+        Extracted source (around line <strong>#124</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>122</span>
+<span>123</span>
+<span>124</span>
+<span>125</span>
+<span>126</span>
+<span>127</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">      @_response_body = nil
+</div><div class="line">
+</div><div class="line active">      process_action(action_name, *args)
+</div><div class="line">    end
+</div><div class="line">
+</div><div class="line">    # Delegates to the class&#39; ::controller_path
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-21">
+      <div class="info">
+        Extracted source (around line <strong>#30</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>28</span>
+<span>29</span>
+<span>30</span>
+<span>31</span>
+<span>32</span>
+<span>33</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">    def process(*) #:nodoc:
+</div><div class="line">      old_config, I18n.config = I18n.config, I18nProxy.new(I18n.config, lookup_context)
+</div><div class="line active">      super
+</div><div class="line">    ensure
+</div><div class="line">      I18n.config = old_config
+</div><div class="line">    end
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-22">
+      <div class="info">
+        Extracted source (around line <strong>#189</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>187</span>
+<span>188</span>
+<span>189</span>
+<span>190</span>
+<span>191</span>
+<span>192</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">      set_request!(request)
+</div><div class="line">      set_response!(response)
+</div><div class="line active">      process(name)
+</div><div class="line">      request.commit_flash
+</div><div class="line">      to_a
+</div><div class="line">    end
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-23">
+      <div class="info">
+        Extracted source (around line <strong>#253</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>251</span>
+<span>252</span>
+<span>253</span>
+<span>254</span>
+<span>255</span>
+<span>256</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">        middleware_stack.build(name) { |env| new.dispatch(name, req, res) }.call req.env
+</div><div class="line">      else
+</div><div class="line active">        new.dispatch(name, req, res)
+</div><div class="line">      end
+</div><div class="line">    end
+</div><div class="line">  end
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-24">
+      <div class="info">
+        Extracted source (around line <strong>#49</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>47</span>
+<span>48</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">        def dispatch(controller, action, req, res)
+</div><div class="line active">          controller.dispatch(action, req, res)
+</div><div class="line">        end
+</div><div class="line">      end
+</div><div class="line">
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-25">
+      <div class="info">
+        Extracted source (around line <strong>#31</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>29</span>
+<span>30</span>
+<span>31</span>
+<span>32</span>
+<span>33</span>
+<span>34</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">          controller = controller req
+</div><div class="line">          res        = controller.make_response! req
+</div><div class="line active">          dispatch(controller, params[:action], req, res)
+</div><div class="line">        rescue ActionController::RoutingError
+</div><div class="line">          if @raise_on_name_error
+</div><div class="line">            raise
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-26">
+      <div class="info">
+        Extracted source (around line <strong>#50</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>48</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span>
+<span>53</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">          req.path_parameters = set_params.merge parameters
+</div><div class="line">
+</div><div class="line active">          status, headers, body = route.app.serve(req)
+</div><div class="line">
+</div><div class="line">          if &quot;pass&quot; == headers[&quot;X-Cascade&quot;]
+</div><div class="line">            req.script_name     = script_name
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-27">
+      <div class="info">
+        Extracted source (around line <strong>#33</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>31</span>
+<span>32</span>
+<span>33</span>
+<span>34</span>
+<span>35</span>
+<span>36</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">      def serve(req)
+</div><div class="line active">        find_routes(req).each do |match, parameters, route|
+</div><div class="line">          set_params  = req.path_parameters
+</div><div class="line">          path_info   = req.path_info
+</div><div class="line">          script_name = req.script_name
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-28">
+      <div class="info">
+        Extracted source (around line <strong>#33</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>31</span>
+<span>32</span>
+<span>33</span>
+<span>34</span>
+<span>35</span>
+<span>36</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">      def serve(req)
+</div><div class="line active">        find_routes(req).each do |match, parameters, route|
+</div><div class="line">          set_params  = req.path_parameters
+</div><div class="line">          path_info   = req.path_info
+</div><div class="line">          script_name = req.script_name
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-29">
+      <div class="info">
+        Extracted source (around line <strong>#844</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>842</span>
+<span>843</span>
+<span>844</span>
+<span>845</span>
+<span>846</span>
+<span>847</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">        req = make_request(env)
+</div><div class="line">        req.path_info = Journey::Router::Utils.normalize_path(req.path_info)
+</div><div class="line active">        @router.serve(req)
+</div><div class="line">      end
+</div><div class="line">
+</div><div class="line">      def recognize_path(path, environment = {})
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-30">
+      <div class="info">
+        Extracted source (around line <strong>#25</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>23</span>
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+<span>28</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">    def call(env)
+</div><div class="line active">      status, headers, body = @app.call(env)
+</div><div class="line">
+</div><div class="line">      if etag_status?(status) &amp;&amp; etag_body?(body) &amp;&amp; !skip_caching?(headers)
+</div><div class="line">        original_body = body
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-31">
+      <div class="info">
+        Extracted source (around line <strong>#38</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>36</span>
+<span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">        [status, headers, body]
+</div><div class="line">      else
+</div><div class="line active">        @app.call(env)
+</div><div class="line">      end
+</div><div class="line">    end
+</div><div class="line">
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-32">
+      <div class="info">
+        Extracted source (around line <strong>#12</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>10</span>
+<span>11</span>
+<span>12</span>
+<span>13</span>
+<span>14</span>
+<span>15</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">    def call(env)
+</div><div class="line active">      status, headers, body = @app.call(env)
+</div><div class="line">
+</div><div class="line">      if env[REQUEST_METHOD] == HEAD
+</div><div class="line">        [
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-33">
+      <div class="info">
+        Extracted source (around line <strong>#232</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>230</span>
+<span>231</span>
+<span>232</span>
+<span>233</span>
+<span>234</span>
+<span>235</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">          req = make_request env
+</div><div class="line">          prepare_session(req)
+</div><div class="line active">          status, headers, body = app.call(req.env)
+</div><div class="line">          res = Rack::Response::Raw.new status, headers
+</div><div class="line">          commit_session(req, res)
+</div><div class="line">          [status, headers, body]
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-34">
+      <div class="info">
+        Extracted source (around line <strong>#226</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>224</span>
+<span>225</span>
+<span>226</span>
+<span>227</span>
+<span>228</span>
+<span>229</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">        def call(env)
+</div><div class="line active">          context(env)
+</div><div class="line">        end
+</div><div class="line">
+</div><div class="line">        def context(env, app=@app)
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-35">
+      <div class="info">
+        Extracted source (around line <strong>#613</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>611</span>
+<span>612</span>
+<span>613</span>
+<span>614</span>
+<span>615</span>
+<span>616</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">      request = ActionDispatch::Request.new env
+</div><div class="line">
+</div><div class="line active">      status, headers, body = @app.call(env)
+</div><div class="line">
+</div><div class="line">      if request.have_cookie_jar?
+</div><div class="line">        cookie_jar = request.cookie_jar
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-36">
+      <div class="info">
+        Extracted source (around line <strong>#556</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>554</span>
+<span>555</span>
+<span>556</span>
+<span>557</span>
+<span>558</span>
+<span>559</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">          @last_check = mtime
+</div><div class="line">        end
+</div><div class="line active">        @app.call(env)
+</div><div class="line">      end
+</div><div class="line">
+</div><div class="line">      private
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-37">
+      <div class="info">
+        Extracted source (around line <strong>#26</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+<span>28</span>
+<span>29</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">      result = run_callbacks :call do
+</div><div class="line">        begin
+</div><div class="line active">          @app.call(env)
+</div><div class="line">        rescue =&gt; error
+</div><div class="line">        end
+</div><div class="line">      end
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-38">
+      <div class="info">
+        Extracted source (around line <strong>#97</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>95</span>
+<span>96</span>
+<span>97</span>
+<span>98</span>
+<span>99</span>
+<span>100</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">      if callbacks.empty?
+</div><div class="line active">        yield if block_given?
+</div><div class="line">      else
+</div><div class="line">        env = Filters::Environment.new(self, false, nil)
+</div><div class="line">        next_sequence = callbacks.compile
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-39">
+      <div class="info">
+        Extracted source (around line <strong>#24</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">    def call(env)
+</div><div class="line">      error = nil
+</div><div class="line active">      result = run_callbacks :call do
+</div><div class="line">        begin
+</div><div class="line">          @app.call(env)
+</div><div class="line">        rescue =&gt; error
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-40">
+      <div class="info">
+        Extracted source (around line <strong>#12</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>10</span>
+<span>11</span>
+<span>12</span>
+<span>13</span>
+<span>14</span>
+<span>15</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">      state = @executor.run!
+</div><div class="line">      begin
+</div><div class="line active">        response = @app.call(env)
+</div><div class="line">        returned = response &lt;&lt; ::Rack::BodyProxy.new(response.pop) { state.complete! }
+</div><div class="line">      ensure
+</div><div class="line">        state.complete! unless returned
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-41">
+      <div class="info">
+        Extracted source (around line <strong>#59</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>57</span>
+<span>58</span>
+<span>59</span>
+<span>60</span>
+<span>61</span>
+<span>62</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">    def call(env)
+</div><div class="line">      request = ActionDispatch::Request.new env
+</div><div class="line active">      _, headers, body = response = @app.call(env)
+</div><div class="line">
+</div><div class="line">      if headers[&quot;X-Cascade&quot;] == &quot;pass&quot;
+</div><div class="line">        body.close if body.respond_to?(:close)
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-42">
+      <div class="info">
+        Extracted source (around line <strong>#135</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>133</span>
+<span>134</span>
+<span>135</span>
+<span>136</span>
+<span>137</span>
+<span>138</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">      def call_app(env)
+</div><div class="line active">        @app.call(env)
+</div><div class="line">      rescue =&gt; e
+</div><div class="line">        throw :app_exception, e
+</div><div class="line">      end
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-43">
+      <div class="info">
+        Extracted source (around line <strong>#28</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>26</span>
+<span>27</span>
+<span>28</span>
+<span>29</span>
+<span>30</span>
+<span>31</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">        end
+</div><div class="line">
+</div><div class="line active">        status, headers, body = call_app(env)
+</div><div class="line">
+</div><div class="line">        if session = Session.from(Thread.current) and acceptable_content_type?(headers)
+</div><div class="line">          response = Response.new(body, status, headers)
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-44">
+      <div class="info">
+        Extracted source (around line <strong>#18</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>16</span>
+<span>17</span>
+<span>18</span>
+<span>19</span>
+<span>20</span>
+<span>21</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">    def call(env)
+</div><div class="line active">      app_exception = catch :app_exception do
+</div><div class="line">        request = create_regular_or_whiny_request(env)
+</div><div class="line">        return call_app(env) unless request.from_whitelisted_ip?
+</div><div class="line">
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-45">
+      <div class="info">
+        Extracted source (around line <strong>#18</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>16</span>
+<span>17</span>
+<span>18</span>
+<span>19</span>
+<span>20</span>
+<span>21</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">    def call(env)
+</div><div class="line active">      app_exception = catch :app_exception do
+</div><div class="line">        request = create_regular_or_whiny_request(env)
+</div><div class="line">        return call_app(env) unless request.from_whitelisted_ip?
+</div><div class="line">
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-46">
+      <div class="info">
+        Extracted source (around line <strong>#31</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>29</span>
+<span>30</span>
+<span>31</span>
+<span>32</span>
+<span>33</span>
+<span>34</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">    def call(env)
+</div><div class="line">      request = ActionDispatch::Request.new env
+</div><div class="line active">      @app.call(env)
+</div><div class="line">    rescue Exception =&gt; exception
+</div><div class="line">      if request.show_exceptions?
+</div><div class="line">        render_exception(request, exception)
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-47">
+      <div class="info">
+        Extracted source (around line <strong>#36</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>34</span>
+<span>35</span>
+<span>36</span>
+<span>37</span>
+<span>38</span>
+<span>39</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">          instrumenter.start &quot;request.action_dispatch&quot;, request: request
+</div><div class="line">          logger.info { started_request_message(request) }
+</div><div class="line active">          resp = @app.call(env)
+</div><div class="line">          resp[2] = ::Rack::BodyProxy.new(resp[2]) { finish(request) }
+</div><div class="line">          resp
+</div><div class="line">        rescue Exception
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-48">
+      <div class="info">
+        Extracted source (around line <strong>#24</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">        if logger.respond_to?(:tagged)
+</div><div class="line active">          logger.tagged(compute_tags(request)) { call_app(request, env) }
+</div><div class="line">        else
+</div><div class="line">          call_app(request, env)
+</div><div class="line">        end
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-49">
+      <div class="info">
+        Extracted source (around line <strong>#69</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">    def tagged(*tags)
+</div><div class="line active">      formatter.tagged(*tags) { yield self }
+</div><div class="line">    end
+</div><div class="line">
+</div><div class="line">    def flush
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-50">
+      <div class="info">
+        Extracted source (around line <strong>#26</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+<span>28</span>
+<span>29</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">      def tagged(*tags)
+</div><div class="line">        new_tags = push_tags(*tags)
+</div><div class="line active">        yield self
+</div><div class="line">      ensure
+</div><div class="line">        pop_tags(new_tags.size)
+</div><div class="line">      end
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-51">
+      <div class="info">
+        Extracted source (around line <strong>#69</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">    def tagged(*tags)
+</div><div class="line active">      formatter.tagged(*tags) { yield self }
+</div><div class="line">    end
+</div><div class="line">
+</div><div class="line">    def flush
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-52">
+      <div class="info">
+        Extracted source (around line <strong>#24</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">        if logger.respond_to?(:tagged)
+</div><div class="line active">          logger.tagged(compute_tags(request)) { call_app(request, env) }
+</div><div class="line">        else
+</div><div class="line">          call_app(request, env)
+</div><div class="line">        end
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-53">
+      <div class="info">
+        Extracted source (around line <strong>#13</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>11</span>
+<span>12</span>
+<span>13</span>
+<span>14</span>
+<span>15</span>
+<span>16</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">          ::Rails.logger.silence { @app.call(env) }
+</div><div class="line">        else
+</div><div class="line active">          @app.call(env)
+</div><div class="line">        end
+</div><div class="line">      end
+</div><div class="line">    end
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-54">
+      <div class="info">
+        Extracted source (around line <strong>#79</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>77</span>
+<span>78</span>
+<span>79</span>
+<span>80</span>
+<span>81</span>
+<span>82</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">      req = ActionDispatch::Request.new env
+</div><div class="line">      req.remote_ip = GetIp.new(req, check_ip, proxies)
+</div><div class="line active">      @app.call(req.env)
+</div><div class="line">    end
+</div><div class="line">
+</div><div class="line">    # The GetIp class exists as a way to defer processing of the request data
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-55">
+      <div class="info">
+        Extracted source (around line <strong>#25</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>23</span>
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+<span>28</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">      req = ActionDispatch::Request.new env
+</div><div class="line">      req.request_id = make_request_id(req.x_request_id)
+</div><div class="line active">      @app.call(env).tap { |_status, headers, _body| headers[X_REQUEST_ID] = req.request_id }
+</div><div class="line">    end
+</div><div class="line">
+</div><div class="line">    private
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-56">
+      <div class="info">
+        Extracted source (around line <strong>#22</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>20</span>
+<span>21</span>
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">      end
+</div><div class="line">
+</div><div class="line active">      @app.call(env)
+</div><div class="line">    end
+</div><div class="line">
+</div><div class="line">    def method_override(env)
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-57">
+      <div class="info">
+        Extracted source (around line <strong>#22</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>20</span>
+<span>21</span>
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">    def call(env)
+</div><div class="line">      start_time = Utils.clock_time
+</div><div class="line active">      status, headers, body = @app.call(env)
+</div><div class="line">      request_time = Utils.clock_time - start_time
+</div><div class="line">
+</div><div class="line">      unless headers.has_key?(@header_name)
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-58">
+      <div class="info">
+        Extracted source (around line <strong>#27</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>25</span>
+<span>26</span>
+<span>27</span>
+<span>28</span>
+<span>29</span>
+<span>30</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">          def call(env)
+</div><div class="line">            LocalCacheRegistry.set_cache_for(local_cache_key, LocalStore.new)
+</div><div class="line active">            response = @app.call(env)
+</div><div class="line">            response[2] = ::Rack::BodyProxy.new(response[2]) do
+</div><div class="line">              LocalCacheRegistry.set_cache_for(local_cache_key, nil)
+</div><div class="line">            end
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-59">
+      <div class="info">
+        Extracted source (around line <strong>#12</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>10</span>
+<span>11</span>
+<span>12</span>
+<span>13</span>
+<span>14</span>
+<span>15</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">      state = @executor.run!
+</div><div class="line">      begin
+</div><div class="line active">        response = @app.call(env)
+</div><div class="line">        returned = response &lt;&lt; ::Rack::BodyProxy.new(response.pop) { state.complete! }
+</div><div class="line">      ensure
+</div><div class="line">        state.complete! unless returned
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-60">
+      <div class="info">
+        Extracted source (around line <strong>#125</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>123</span>
+<span>124</span>
+<span>125</span>
+<span>126</span>
+<span>127</span>
+<span>128</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">      end
+</div><div class="line">
+</div><div class="line active">      @app.call(req.env)
+</div><div class="line">    end
+</div><div class="line">  end
+</div><div class="line">end
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-61">
+      <div class="info">
+        Extracted source (around line <strong>#111</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>109</span>
+<span>110</span>
+<span>111</span>
+<span>112</span>
+<span>113</span>
+<span>114</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">    def call(env)
+</div><div class="line active">      status, headers, body = @app.call(env)
+</div><div class="line">      if body.respond_to?(:to_path)
+</div><div class="line">        case type = variation(env)
+</div><div class="line">        when &#39;X-Accel-Redirect&#39;
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-62">
+      <div class="info">
+        Extracted source (around line <strong>#522</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>520</span>
+<span>521</span>
+<span>522</span>
+<span>523</span>
+<span>524</span>
+<span>525</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">    def call(env)
+</div><div class="line">      req = build_request env
+</div><div class="line active">      app.call req.env
+</div><div class="line">    end
+</div><div class="line">
+</div><div class="line">    # Defines additional Rack env configuration that is added on each call.
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-63">
+      <div class="info">
+        Extracted source (around line <strong>#225</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>223</span>
+<span>224</span>
+<span>225</span>
+<span>226</span>
+<span>227</span>
+<span>228</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">      def call(env)
+</div><div class="line">        env[Const::PUMA_CONFIG] = @config
+</div><div class="line active">        @app.call(env)
+</div><div class="line">      end
+</div><div class="line">    end
+</div><div class="line">
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-64">
+      <div class="info">
+        Extracted source (around line <strong>#624</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>622</span>
+<span>623</span>
+<span>624</span>
+<span>625</span>
+<span>626</span>
+<span>627</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">      begin
+</div><div class="line">        begin
+</div><div class="line active">          status, headers, res_body = @app.call(env)
+</div><div class="line">
+</div><div class="line">          return :async if req.hijacked
+</div><div class="line">
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-65">
+      <div class="info">
+        Extracted source (around line <strong>#438</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>436</span>
+<span>437</span>
+<span>438</span>
+<span>439</span>
+<span>440</span>
+<span>441</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">        while true
+</div><div class="line active">          case handle_request(client, buffer)
+</div><div class="line">          when false
+</div><div class="line">            return
+</div><div class="line">          when :async
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-66">
+      <div class="info">
+        Extracted source (around line <strong>#302</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>300</span>
+<span>301</span>
+<span>302</span>
+<span>303</span>
+<span>304</span>
+<span>305</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">        else
+</div><div class="line">          if process_now
+</div><div class="line active">            process_client client, buffer
+</div><div class="line">          else
+</div><div class="line">            client.set_timeout @first_data_timeout
+</div><div class="line">            @reactor.add client
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="source hidden" id="frame-source-67">
+      <div class="info">
+        Extracted source (around line <strong>#120</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>118</span>
+<span>119</span>
+<span>120</span>
+<span>121</span>
+<span>122</span>
+<span>123</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">          begin
+</div><div class="line active">            block.call(work, *extra)
+</div><div class="line">          rescue Exception =&gt; e
+</div><div class="line">            STDERR.puts &quot;Error reached top of thread-pool: #{e.message} (#{e.class})&quot;
+</div><div class="line">          end
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  
+<p><code>Rails.root: /home/yuka/Hobbies/test-projects/rails-rest-api</code></p>
+
+<div id="traces">
+    <a href="#" onclick="hide(&#39;Framework-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Application-Trace&#39;);; return false;">Application Trace</a> |
+    <a href="#" onclick="hide(&#39;Application-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Framework-Trace&#39;);; return false;">Framework Trace</a> |
+    <a href="#" onclick="hide(&#39;Application-Trace&#39;);hide(&#39;Framework-Trace&#39;);show(&#39;Full-Trace&#39;);; return false;">Full Trace</a> 
+
+    <div id="Application-Trace" style="display: none;">
+      <pre><code></code></pre>
+    </div>
+    <div id="Framework-Trace" style="display: none;">
+      <pre><code><a class="trace-frames" data-frame-id="0" href="#">actionpack (5.1.5) lib/action_controller/metal/request_forgery_protection.rb:195:in `handle_unverified_request&#39;</a><br><a class="trace-frames" data-frame-id="1" href="#">actionpack (5.1.5) lib/action_controller/metal/request_forgery_protection.rb:227:in `handle_unverified_request&#39;</a><br><a class="trace-frames" data-frame-id="2" href="#">actionpack (5.1.5) lib/action_controller/metal/request_forgery_protection.rb:222:in `verify_authenticity_token&#39;</a><br><a class="trace-frames" data-frame-id="3" href="#">activesupport (5.1.5) lib/active_support/callbacks.rb:413:in `block in make_lambda&#39;</a><br><a class="trace-frames" data-frame-id="4" href="#">activesupport (5.1.5) lib/active_support/callbacks.rb:197:in `block (2 levels) in halting&#39;</a><br><a class="trace-frames" data-frame-id="5" href="#">actionpack (5.1.5) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in &lt;module:Callbacks&gt;&#39;</a><br><a class="trace-frames" data-frame-id="6" href="#">activesupport (5.1.5) lib/active_support/callbacks.rb:198:in `block in halting&#39;</a><br><a class="trace-frames" data-frame-id="7" href="#">activesupport (5.1.5) lib/active_support/callbacks.rb:507:in `block in invoke_before&#39;</a><br><a class="trace-frames" data-frame-id="8" href="#">activesupport (5.1.5) lib/active_support/callbacks.rb:507:in `each&#39;</a><br><a class="trace-frames" data-frame-id="9" href="#">activesupport (5.1.5) lib/active_support/callbacks.rb:507:in `invoke_before&#39;</a><br><a class="trace-frames" data-frame-id="10" href="#">activesupport (5.1.5) lib/active_support/callbacks.rb:130:in `run_callbacks&#39;</a><br><a class="trace-frames" data-frame-id="11" href="#">actionpack (5.1.5) lib/abstract_controller/callbacks.rb:19:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="12" href="#">actionpack (5.1.5) lib/action_controller/metal/rescue.rb:20:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="13" href="#">actionpack (5.1.5) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action&#39;</a><br><a class="trace-frames" data-frame-id="14" href="#">activesupport (5.1.5) lib/active_support/notifications.rb:166:in `block in instrument&#39;</a><br><a class="trace-frames" data-frame-id="15" href="#">activesupport (5.1.5) lib/active_support/notifications/instrumenter.rb:21:in `instrument&#39;</a><br><a class="trace-frames" data-frame-id="16" href="#">activesupport (5.1.5) lib/active_support/notifications.rb:166:in `instrument&#39;</a><br><a class="trace-frames" data-frame-id="17" href="#">actionpack (5.1.5) lib/action_controller/metal/instrumentation.rb:30:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="18" href="#">actionpack (5.1.5) lib/action_controller/metal/params_wrapper.rb:252:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="19" href="#">activerecord (5.1.5) lib/active_record/railties/controller_runtime.rb:22:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="20" href="#">actionpack (5.1.5) lib/abstract_controller/base.rb:124:in `process&#39;</a><br><a class="trace-frames" data-frame-id="21" href="#">actionview (5.1.5) lib/action_view/rendering.rb:30:in `process&#39;</a><br><a class="trace-frames" data-frame-id="22" href="#">actionpack (5.1.5) lib/action_controller/metal.rb:189:in `dispatch&#39;</a><br><a class="trace-frames" data-frame-id="23" href="#">actionpack (5.1.5) lib/action_controller/metal.rb:253:in `dispatch&#39;</a><br><a class="trace-frames" data-frame-id="24" href="#">actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:49:in `dispatch&#39;</a><br><a class="trace-frames" data-frame-id="25" href="#">actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:31:in `serve&#39;</a><br><a class="trace-frames" data-frame-id="26" href="#">actionpack (5.1.5) lib/action_dispatch/journey/router.rb:50:in `block in serve&#39;</a><br><a class="trace-frames" data-frame-id="27" href="#">actionpack (5.1.5) lib/action_dispatch/journey/router.rb:33:in `each&#39;</a><br><a class="trace-frames" data-frame-id="28" href="#">actionpack (5.1.5) lib/action_dispatch/journey/router.rb:33:in `serve&#39;</a><br><a class="trace-frames" data-frame-id="29" href="#">actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:844:in `call&#39;</a><br><a class="trace-frames" data-frame-id="30" href="#">rack (2.0.4) lib/rack/etag.rb:25:in `call&#39;</a><br><a class="trace-frames" data-frame-id="31" href="#">rack (2.0.4) lib/rack/conditional_get.rb:38:in `call&#39;</a><br><a class="trace-frames" data-frame-id="32" href="#">rack (2.0.4) lib/rack/head.rb:12:in `call&#39;</a><br><a class="trace-frames" data-frame-id="33" href="#">rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context&#39;</a><br><a class="trace-frames" data-frame-id="34" href="#">rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call&#39;</a><br><a class="trace-frames" data-frame-id="35" href="#">actionpack (5.1.5) lib/action_dispatch/middleware/cookies.rb:613:in `call&#39;</a><br><a class="trace-frames" data-frame-id="36" href="#">activerecord (5.1.5) lib/active_record/migration.rb:556:in `call&#39;</a><br><a class="trace-frames" data-frame-id="37" href="#">actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call&#39;</a><br><a class="trace-frames" data-frame-id="38" href="#">activesupport (5.1.5) lib/active_support/callbacks.rb:97:in `run_callbacks&#39;</a><br><a class="trace-frames" data-frame-id="39" href="#">actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:24:in `call&#39;</a><br><a class="trace-frames" data-frame-id="40" href="#">actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call&#39;</a><br><a class="trace-frames" data-frame-id="41" href="#">actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call&#39;</a><br><a class="trace-frames" data-frame-id="42" href="#">web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app&#39;</a><br><a class="trace-frames" data-frame-id="43" href="#">web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call&#39;</a><br><a class="trace-frames" data-frame-id="44" href="#">web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch&#39;</a><br><a class="trace-frames" data-frame-id="45" href="#">web-console (3.5.1) lib/web_console/middleware.rb:18:in `call&#39;</a><br><a class="trace-frames" data-frame-id="46" href="#">actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call&#39;</a><br><a class="trace-frames" data-frame-id="47" href="#">railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app&#39;</a><br><a class="trace-frames" data-frame-id="48" href="#">railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call&#39;</a><br><a class="trace-frames" data-frame-id="49" href="#">activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged&#39;</a><br><a class="trace-frames" data-frame-id="50" href="#">activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged&#39;</a><br><a class="trace-frames" data-frame-id="51" href="#">activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged&#39;</a><br><a class="trace-frames" data-frame-id="52" href="#">railties (5.1.5) lib/rails/rack/logger.rb:24:in `call&#39;</a><br><a class="trace-frames" data-frame-id="53" href="#">sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call&#39;</a><br><a class="trace-frames" data-frame-id="54" href="#">actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call&#39;</a><br><a class="trace-frames" data-frame-id="55" href="#">actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call&#39;</a><br><a class="trace-frames" data-frame-id="56" href="#">rack (2.0.4) lib/rack/method_override.rb:22:in `call&#39;</a><br><a class="trace-frames" data-frame-id="57" href="#">rack (2.0.4) lib/rack/runtime.rb:22:in `call&#39;</a><br><a class="trace-frames" data-frame-id="58" href="#">activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call&#39;</a><br><a class="trace-frames" data-frame-id="59" href="#">actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call&#39;</a><br><a class="trace-frames" data-frame-id="60" href="#">actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call&#39;</a><br><a class="trace-frames" data-frame-id="61" href="#">rack (2.0.4) lib/rack/sendfile.rb:111:in `call&#39;</a><br><a class="trace-frames" data-frame-id="62" href="#">railties (5.1.5) lib/rails/engine.rb:522:in `call&#39;</a><br><a class="trace-frames" data-frame-id="63" href="#">puma (3.11.3) lib/puma/configuration.rb:225:in `call&#39;</a><br><a class="trace-frames" data-frame-id="64" href="#">puma (3.11.3) lib/puma/server.rb:624:in `handle_request&#39;</a><br><a class="trace-frames" data-frame-id="65" href="#">puma (3.11.3) lib/puma/server.rb:438:in `process_client&#39;</a><br><a class="trace-frames" data-frame-id="66" href="#">puma (3.11.3) lib/puma/server.rb:302:in `block in run&#39;</a><br><a class="trace-frames" data-frame-id="67" href="#">puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread&#39;</a><br></code></pre>
+    </div>
+    <div id="Full-Trace" style="display: block;">
+      <pre><code><a class="trace-frames" data-frame-id="0" href="#">actionpack (5.1.5) lib/action_controller/metal/request_forgery_protection.rb:195:in `handle_unverified_request&#39;</a><br><a class="trace-frames" data-frame-id="1" href="#">actionpack (5.1.5) lib/action_controller/metal/request_forgery_protection.rb:227:in `handle_unverified_request&#39;</a><br><a class="trace-frames" data-frame-id="2" href="#">actionpack (5.1.5) lib/action_controller/metal/request_forgery_protection.rb:222:in `verify_authenticity_token&#39;</a><br><a class="trace-frames" data-frame-id="3" href="#">activesupport (5.1.5) lib/active_support/callbacks.rb:413:in `block in make_lambda&#39;</a><br><a class="trace-frames" data-frame-id="4" href="#">activesupport (5.1.5) lib/active_support/callbacks.rb:197:in `block (2 levels) in halting&#39;</a><br><a class="trace-frames" data-frame-id="5" href="#">actionpack (5.1.5) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in &lt;module:Callbacks&gt;&#39;</a><br><a class="trace-frames" data-frame-id="6" href="#">activesupport (5.1.5) lib/active_support/callbacks.rb:198:in `block in halting&#39;</a><br><a class="trace-frames" data-frame-id="7" href="#">activesupport (5.1.5) lib/active_support/callbacks.rb:507:in `block in invoke_before&#39;</a><br><a class="trace-frames" data-frame-id="8" href="#">activesupport (5.1.5) lib/active_support/callbacks.rb:507:in `each&#39;</a><br><a class="trace-frames" data-frame-id="9" href="#">activesupport (5.1.5) lib/active_support/callbacks.rb:507:in `invoke_before&#39;</a><br><a class="trace-frames" data-frame-id="10" href="#">activesupport (5.1.5) lib/active_support/callbacks.rb:130:in `run_callbacks&#39;</a><br><a class="trace-frames" data-frame-id="11" href="#">actionpack (5.1.5) lib/abstract_controller/callbacks.rb:19:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="12" href="#">actionpack (5.1.5) lib/action_controller/metal/rescue.rb:20:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="13" href="#">actionpack (5.1.5) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action&#39;</a><br><a class="trace-frames" data-frame-id="14" href="#">activesupport (5.1.5) lib/active_support/notifications.rb:166:in `block in instrument&#39;</a><br><a class="trace-frames" data-frame-id="15" href="#">activesupport (5.1.5) lib/active_support/notifications/instrumenter.rb:21:in `instrument&#39;</a><br><a class="trace-frames" data-frame-id="16" href="#">activesupport (5.1.5) lib/active_support/notifications.rb:166:in `instrument&#39;</a><br><a class="trace-frames" data-frame-id="17" href="#">actionpack (5.1.5) lib/action_controller/metal/instrumentation.rb:30:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="18" href="#">actionpack (5.1.5) lib/action_controller/metal/params_wrapper.rb:252:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="19" href="#">activerecord (5.1.5) lib/active_record/railties/controller_runtime.rb:22:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="20" href="#">actionpack (5.1.5) lib/abstract_controller/base.rb:124:in `process&#39;</a><br><a class="trace-frames" data-frame-id="21" href="#">actionview (5.1.5) lib/action_view/rendering.rb:30:in `process&#39;</a><br><a class="trace-frames" data-frame-id="22" href="#">actionpack (5.1.5) lib/action_controller/metal.rb:189:in `dispatch&#39;</a><br><a class="trace-frames" data-frame-id="23" href="#">actionpack (5.1.5) lib/action_controller/metal.rb:253:in `dispatch&#39;</a><br><a class="trace-frames" data-frame-id="24" href="#">actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:49:in `dispatch&#39;</a><br><a class="trace-frames" data-frame-id="25" href="#">actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:31:in `serve&#39;</a><br><a class="trace-frames" data-frame-id="26" href="#">actionpack (5.1.5) lib/action_dispatch/journey/router.rb:50:in `block in serve&#39;</a><br><a class="trace-frames" data-frame-id="27" href="#">actionpack (5.1.5) lib/action_dispatch/journey/router.rb:33:in `each&#39;</a><br><a class="trace-frames" data-frame-id="28" href="#">actionpack (5.1.5) lib/action_dispatch/journey/router.rb:33:in `serve&#39;</a><br><a class="trace-frames" data-frame-id="29" href="#">actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:844:in `call&#39;</a><br><a class="trace-frames" data-frame-id="30" href="#">rack (2.0.4) lib/rack/etag.rb:25:in `call&#39;</a><br><a class="trace-frames" data-frame-id="31" href="#">rack (2.0.4) lib/rack/conditional_get.rb:38:in `call&#39;</a><br><a class="trace-frames" data-frame-id="32" href="#">rack (2.0.4) lib/rack/head.rb:12:in `call&#39;</a><br><a class="trace-frames" data-frame-id="33" href="#">rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context&#39;</a><br><a class="trace-frames" data-frame-id="34" href="#">rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call&#39;</a><br><a class="trace-frames" data-frame-id="35" href="#">actionpack (5.1.5) lib/action_dispatch/middleware/cookies.rb:613:in `call&#39;</a><br><a class="trace-frames" data-frame-id="36" href="#">activerecord (5.1.5) lib/active_record/migration.rb:556:in `call&#39;</a><br><a class="trace-frames" data-frame-id="37" href="#">actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call&#39;</a><br><a class="trace-frames" data-frame-id="38" href="#">activesupport (5.1.5) lib/active_support/callbacks.rb:97:in `run_callbacks&#39;</a><br><a class="trace-frames" data-frame-id="39" href="#">actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:24:in `call&#39;</a><br><a class="trace-frames" data-frame-id="40" href="#">actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call&#39;</a><br><a class="trace-frames" data-frame-id="41" href="#">actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call&#39;</a><br><a class="trace-frames" data-frame-id="42" href="#">web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app&#39;</a><br><a class="trace-frames" data-frame-id="43" href="#">web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call&#39;</a><br><a class="trace-frames" data-frame-id="44" href="#">web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch&#39;</a><br><a class="trace-frames" data-frame-id="45" href="#">web-console (3.5.1) lib/web_console/middleware.rb:18:in `call&#39;</a><br><a class="trace-frames" data-frame-id="46" href="#">actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call&#39;</a><br><a class="trace-frames" data-frame-id="47" href="#">railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app&#39;</a><br><a class="trace-frames" data-frame-id="48" href="#">railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call&#39;</a><br><a class="trace-frames" data-frame-id="49" href="#">activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged&#39;</a><br><a class="trace-frames" data-frame-id="50" href="#">activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged&#39;</a><br><a class="trace-frames" data-frame-id="51" href="#">activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged&#39;</a><br><a class="trace-frames" data-frame-id="52" href="#">railties (5.1.5) lib/rails/rack/logger.rb:24:in `call&#39;</a><br><a class="trace-frames" data-frame-id="53" href="#">sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call&#39;</a><br><a class="trace-frames" data-frame-id="54" href="#">actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call&#39;</a><br><a class="trace-frames" data-frame-id="55" href="#">actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call&#39;</a><br><a class="trace-frames" data-frame-id="56" href="#">rack (2.0.4) lib/rack/method_override.rb:22:in `call&#39;</a><br><a class="trace-frames" data-frame-id="57" href="#">rack (2.0.4) lib/rack/runtime.rb:22:in `call&#39;</a><br><a class="trace-frames" data-frame-id="58" href="#">activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call&#39;</a><br><a class="trace-frames" data-frame-id="59" href="#">actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call&#39;</a><br><a class="trace-frames" data-frame-id="60" href="#">actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call&#39;</a><br><a class="trace-frames" data-frame-id="61" href="#">rack (2.0.4) lib/rack/sendfile.rb:111:in `call&#39;</a><br><a class="trace-frames" data-frame-id="62" href="#">railties (5.1.5) lib/rails/engine.rb:522:in `call&#39;</a><br><a class="trace-frames" data-frame-id="63" href="#">puma (3.11.3) lib/puma/configuration.rb:225:in `call&#39;</a><br><a class="trace-frames" data-frame-id="64" href="#">puma (3.11.3) lib/puma/server.rb:624:in `handle_request&#39;</a><br><a class="trace-frames" data-frame-id="65" href="#">puma (3.11.3) lib/puma/server.rb:438:in `process_client&#39;</a><br><a class="trace-frames" data-frame-id="66" href="#">puma (3.11.3) lib/puma/server.rb:302:in `block in run&#39;</a><br><a class="trace-frames" data-frame-id="67" href="#">puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread&#39;</a><br></code></pre>
+    </div>
+
+  <script type="text/javascript">
+    var traceFrames = document.getElementsByClassName('trace-frames');
+    var selectedFrame, currentSource = document.getElementById('frame-source-0');
+
+    // Add click listeners for all stack frames
+    for (var i = 0; i < traceFrames.length; i++) {
+      traceFrames[i].addEventListener('click', function(e) {
+        e.preventDefault();
+        var target = e.target;
+        var frame_id = target.dataset.frameId;
+
+        if (selectedFrame) {
+          selectedFrame.className = selectedFrame.className.replace("selected", "");
+        }
+
+        target.className += " selected";
+        selectedFrame = target;
+
+        // Change the extracted source code
+        changeSourceExtract(frame_id);
+      });
+
+      function changeSourceExtract(frame_id) {
+        var el = document.getElementById('frame-source-' + frame_id);
+        if (currentSource && el) {
+          currentSource.className += " hidden";
+          el.className = el.className.replace(" hidden", "");
+          currentSource = el;
+        }
+      }
+    }
+  </script>
+</div>
+
+  
+<h2 style="margin-top: 30px">Request</h2>
+<p><b>Parameters</b>:</p> <pre>{&quot;{\&quot;title\&quot;:\&quot;test\&quot;,\&quot;content\&quot;:\&quot;test\&quot;}&quot;=&gt;nil}
+</pre>
+
+<div class="details">
+  <div class="summary"><a href="#" onclick="return toggleSessionDump()">Toggle session dump</a></div>
+  <div id="session_dump" style="display:none"><pre></pre></div>
+</div>
+
+<div class="details">
+  <div class="summary"><a href="#" onclick="return toggleEnvDump()">Toggle env dump</a></div>
+  <div id="env_dump" style="display:none"><pre>GATEWAY_INTERFACE: &quot;CGI/1.2&quot;
+HTTP_ACCEPT: &quot;*/*&quot;
+HTTP_VERSION: &quot;HTTP/1.1&quot;
+ORIGINAL_SCRIPT_NAME: &quot;&quot;
+REMOTE_ADDR: &quot;127.0.0.1&quot;
+SERVER_NAME: &quot;localhost&quot;
+SERVER_PROTOCOL: &quot;HTTP/1.1&quot;</pre></div>
+</div>
+
+<h2 style="margin-top: 30px">Response</h2>
+<p><b>Headers</b>:</p> <pre>None</pre>
+
+</div>
+
+
+<div id="console"
+  data-mount-point='/__web_console'
+  data-session-id='0ade93c5151ff541ea911aad7264dc1a'
+  data-prompt-label='>> '>
+</div>
+
+
+<script type="text/javascript" data-template="console">
+(function() {
+  /**
+ * Constructor for command storage.
+ * It uses localStorage if available. Otherwise fallback to normal JS array.
+ */
+function CommandStorage() {
+  this.previousCommands = [];
+  var previousCommandOffset = 0;
+  var hasLocalStorage = typeof window.localStorage !== 'undefined';
+  var STORAGE_KEY = "web_console_previous_commands";
+  var MAX_STORAGE = 100;
+
+  if (hasLocalStorage) {
+    this.previousCommands = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    previousCommandOffset = this.previousCommands.length;
+  }
+
+  this.addCommand = function(command) {
+    previousCommandOffset = this.previousCommands.push(command);
+
+    if (previousCommandOffset > MAX_STORAGE) {
+      this.previousCommands.splice(0, 1);
+      previousCommandOffset = MAX_STORAGE;
+    }
+
+    if (hasLocalStorage) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(this.previousCommands));
+    }
+  };
+
+  this.navigate = function(offset) {
+    previousCommandOffset += offset;
+
+    if (previousCommandOffset < 0) {
+      previousCommandOffset = -1;
+      return null;
+    }
+
+    if (previousCommandOffset >= this.previousCommands.length) {
+      previousCommandOffset = this.previousCommands.length;
+      return null;
+    }
+
+    return this.previousCommands[previousCommandOffset];
+  }
+}
+
+function Autocomplete(_words, prefix) {
+  this.words = prepareWords(_words);
+  this.current = -1;
+  this.left = 0; // [left, right)
+  this.right = this.words.length;
+  this.confirmed = false;
+
+  function createSpan(label, className) {
+    var el = document.createElement('span');
+    addClass(el, className);
+    el.innerText = label;
+    return el;
+  }
+
+  function prepareWords(words) {
+    // convert into an object with priority and element
+    var res = new Array(words.length);
+    for (var i = 0, ind = 0; i < words.length; ++i) {
+      res[i] = new Array(words[i].length);
+      for (var j = 0; j < words[i].length; ++j) {
+        res[i][j] = {
+          word: words[i][j],
+          priority: i,
+          element: createSpan(words[i][j], 'trimmed keyword')
+        };
+      }
+    }
+    // flatten and sort by alphabetical order to refine incrementally
+    res = flatten(res);
+    res.sort(function(a, b) { return a.word == b.word ? 0 : (a.word < b.word ? -1 : 1); });
+    for (var i = 0; i < res.length; ++i) res[i].element.dataset.index = i;
+    return res;
+  }
+
+  this.view = document.createElement('pre');
+  addClass(this.view, 'auto-complete console-message');
+  this.view.appendChild(this.prefix = createSpan('...', 'trimmed keyword'));
+  this.view.appendChild(this.stage = document.createElement('span'));
+  this.elements = this.stage.children;
+  this.view.appendChild(this.suffix = createSpan('...', 'trimmed keyword'));
+
+  this.refine(prefix || '');
+}
+
+Autocomplete.prototype.getSelectedWord = function() {
+  return this.lastSelected && this.lastSelected.innerText;
+};
+
+Autocomplete.prototype.onFinished = function(callback) {
+  this.onFinishedCallback = callback;
+  if (this.confirmed) callback(this.confirmed);
+};
+
+Autocomplete.prototype.onKeyDown = function(ev) {
+  var self = this;
+  if (!this.elements.length) return;
+
+  function move(nextCurrent) {
+    if (self.lastSelected) removeClass(self.lastSelected, 'selected');
+    addClass(self.lastSelected = self.elements[nextCurrent], 'selected');
+    self.trim(self.current, true);
+    self.trim(nextCurrent, false);
+    self.current = nextCurrent;
+  }
+
+  switch (ev.keyCode) {
+    case 69:
+      if (ev.ctrlKey) {
+        move(this.current + 1 >= this.elements.length ? 0 : this.current + 1);
+        return true;
+      }
+      return false;
+    case 9: // Tab
+      if (ev.shiftKey) { // move back
+        move(this.current - 1 < 0 ? this.elements.length - 1 : this.current - 1);
+      } else { // move next
+        move(this.current + 1 >= this.elements.length ? 0 : this.current + 1);
+      }
+      return true;
+    case 13: // Enter
+      this.finish();
+      return true;
+    case 27: // Esc
+      this.cancel();
+      return true;
+    case 37: case 38: case 39: case 40: // disable using arrow keys on completing
+      return true;
+  }
+
+  return false;
+};
+
+Autocomplete.prototype.trim = function(from, needToTrim) {
+  var self = this;
+  var num = 5;
+
+  if (this.elements.length > num) {
+    (0 < from ? removeClass : addClass)(this.prefix, 'trimmed');
+    (from + num < this.elements.length ? removeClass : addClass)(this.suffix, 'trimmed');
+  } else {
+    addClass(this.prefix, 'trimmed');
+    addClass(this.suffix, 'trimmed');
+  }
+
+  function iterate(x) {
+    for (var i = 0; i < num; ++i, ++x) if (0 <= x && x < self.elements.length) {
+      toggleClass(self.elements[x], 'trimmed');
+    }
+  }
+
+  var toggleClass = needToTrim ? addClass : removeClass;
+  if (from < 0) {
+    iterate(0);
+  } else if (from + num - 1 >= this.elements.length) {
+    iterate(this.elements.length - num);
+  } else {
+    iterate(from);
+  }
+};
+
+Autocomplete.prototype.refine = function(prefix) {
+  if (this.confirmed) return;
+  var inc = !this.prev || (prefix.length >= this.prev.length);
+  this.prev = prefix;
+  var self = this;
+
+  function remove(parent, child) {
+    if (parent == child.parentNode) parent.removeChild(child);
+  }
+
+  function toggle(el) {
+    return inc ? remove(self.stage, el) : self.stage.appendChild(el);
+  }
+
+  function startsWith(str, prefix) {
+    return !prefix || str.substr(0, prefix.length) === prefix;
+  }
+
+  function moveRight(l, r) {
+    while (l < r && inc !== startsWith(self.words[l].word, prefix)) toggle(self.words[l++].element);
+    return l;
+  }
+
+  function moveLeft(l, r) {
+    while (l < r - 1 && inc !== startsWith(self.words[r-1].word, prefix)) toggle(self.words[--r].element);
+    return r;
+  }
+
+  self.trim(self.current, true); // reset trimming
+
+  // Refine the range of words having same prefix
+  if (inc) {
+    self.left = moveRight(self.left, self.right);
+    self.right = moveLeft(self.left, self.right);
+  } else {
+    self.left = moveLeft(-1, self.left);
+    self.right = moveRight(self.right, self.words.length);
+  }
+
+  // Render elements with sorting by scope groups
+  var words = this.words.slice(this.left, this.right);
+  words.sort(function(a, b) { return a.priority == b.priority ? (a.word < b.word ? -1 : 1) : (a.priority < b.priority ? -1 : 1); });
+  removeAllChildren(this.elements);
+  for (var i = 0; i < words.length; ++i) {
+    this.stage.appendChild(words[i].element);
+  }
+
+  // Keep a previous selected element if the refined range includes the element
+  if (this.lastSelected && this.left <= this.lastSelected.dataset.index && this.lastSelected.dataset.index < this.right) {
+    this.current = Array.prototype.indexOf.call(this.elements, this.lastSelected);
+    this.trim(this.current, false);
+  } else {
+    if (this.lastSelected) removeClass(this.lastSelected, 'selected');
+    this.lastSelected = null;
+    this.current = -1;
+    this.trim(0, false);
+  }
+
+  if (self.left + 1 == self.right) {
+    self.current = 0;
+    self.finish();
+  } else if (self.left == self.right) {
+    self.cancel();
+  }
+};
+
+Autocomplete.prototype.finish = function() {
+  if (0 <= this.current && this.current < this.elements.length) {
+    this.confirmed = this.elements[this.current].innerText;
+    if (this.onFinishedCallback) this.onFinishedCallback(this.confirmed);
+    this.removeView();
+  } else {
+    this.cancel();
+  }
+};
+
+Autocomplete.prototype.cancel = function() {
+  if (this.onFinishedCallback) this.onFinishedCallback();
+  this.removeView();
+};
+
+Autocomplete.prototype.removeView = function() {
+  if (this.view.parentNode) this.view.parentNode.removeChild(this.view);
+  removeAllChildren(this.view);
+}
+
+// HTML strings for dynamic elements.
+var consoleInnerHtml = "<div class=\'resizer layer\'><\/div>\n<div class=\'console-outer layer\'>\n  <div class=\'console-actions\'>\n    <div class=\'close-button button\' title=\'close\'>x<\/div>\n  <\/div>\n  <div class=\'console-inner\'><\/div>\n<\/div>\n<input class=\'clipboard\' type=\'text\'>\n"
+;
+var promptBoxHtml = "<span class=\'console-prompt-label\'><\/span>\n<pre class=\'console-prompt-display\'><\/pre>\n"
+;
+// CSS
+var consoleStyleCss = ".console .pos-absolute { position: absolute; }\n.console .pos-fixed { position: fixed; }\n.console .pos-right { right: 0; }\n.console .border-box { box-sizing: border-box; }\n.console .layer { width: 100%; height: 100%; }\n.console .layer.console-outer { z-index: 1; }\n.console .layer.resizer { z-index: 2; }\n.console { position: fixed; left: 0; bottom: 0; width: 100%; height: 148px; padding: 0; margin: 0; background: none repeat scroll 0% 0% #333; z-index: 9999; }\n.console .console-outer { overflow: auto; padding-top: 4px; }\n.console .console-inner { font-family: monospace; font-size: 11px; width: 100%; height: 100%; overflow: none; background: #333; }\n.console .console-prompt-box { color: #FFF; }\n.console .console-message { color: #1AD027; margin: 0; border: 0; white-space: pre-wrap; background-color: #333; padding: 0; }\n.console .console-message.error-message { color: #fc9; }\n.console .console-message.auto-complete { word-break: break-all; }\n.console .console-message.auto-complete .keyword { margin-right: 11px; }\n.console .console-message.auto-complete .keyword.selected { background: #FFF; color: #000; }\n.console .console-message.auto-complete .hidden { display: none; }\n.console .console-message.auto-complete .trimmed { display: none; }\n.console .console-hint { color: #096; }\n.console .console-focus .console-cursor { background: #FEFEFE; color: #333; font-weight: bold; }\n.console .resizer { background: #333; width: 100%; height: 4px; cursor: ns-resize; }\n.console .console-actions { padding-right: 3px; }\n.console .console-actions .button { float: left; }\n.console .button { cursor: pointer; border-radius: 1px; font-family: monospace; font-size: 13px; width: 14px; height: 14px; line-height: 14px; text-align: center; color: #ccc; }\n.console .button:hover { background: #666; color: #fff; }\n.console .button.close-button:hover { background: #966; }\n.console .clipboard { height: 0px; padding: 0px; margin: 0px; width: 0px; margin-left: -1000px; }\n.console .console-prompt-label { display: inline; color: #FFF; background: none repeat scroll 0% 0% #333; border: 0; padding: 0; }\n.console .console-prompt-display { display: inline; color: #FFF; background: none repeat scroll 0% 0% #333; border: 0; padding: 0; }\n.console.full-screen { height: 100%; }\n.console.full-screen .console-outer { padding-top: 3px; }\n.console.full-screen .resizer { display: none; }\n.console.full-screen .close-button { display: none; }\n"
+;
+// Insert a style element with the unique ID
+var styleElementId = 'sr02459pvbvrmhco';
+
+// REPLConsole Constructor
+function REPLConsole(config) {
+  function getConfig(key, defaultValue) {
+    return config && config[key] || defaultValue;
+  }
+
+  this.commandStorage = new CommandStorage();
+  this.prompt = getConfig('promptLabel', ' >>');
+  this.mountPoint = getConfig('mountPoint');
+  this.sessionId = getConfig('sessionId');
+  this.autocomplete = false;
+}
+
+REPLConsole.prototype.getSessionUrl = function(path) {
+  var parts = [ this.mountPoint, 'repl_sessions', this.sessionId ];
+  if (path) {
+    parts.push(path);
+  }
+  // Join and remove duplicate slashes.
+  return parts.join('/').replace(/([^:]\/)\/+/g, '$1');
+};
+
+REPLConsole.prototype.contextRequest = function(keyword, callback) {
+  putRequest(this.getSessionUrl(), 'context=' + getContext(keyword), function(xhr) {
+    if (xhr.status == 200) {
+      callback(null, JSON.parse(xhr.responseText));
+    } else {
+      callback(xhr.statusText);
+    }
+  });
+};
+
+REPLConsole.prototype.commandHandle = function(line, callback) {
+  var self = this;
+  var params = 'input=' + encodeURIComponent(line);
+  callback = callback || function() {};
+
+  function isSuccess(status) {
+    return status >= 200 && status < 300 || status === 304;
+  }
+
+  function parseJSON(text) {
+    try {
+      return JSON.parse(text);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function getErrorText(xhr) {
+    if (!xhr.status) {
+      return "Connection Refused";
+    } else {
+      return xhr.status + ' ' + xhr.statusText;
+    }
+  }
+
+  putRequest(self.getSessionUrl(), params, function(xhr) {
+    var response = parseJSON(xhr.responseText);
+    var result   = isSuccess(xhr.status);
+    if (result) {
+      self.writeOutput(response.output);
+    } else {
+      if (response && response.output) {
+        self.writeError(response.output);
+      } else {
+        self.writeError(getErrorText(xhr));
+      }
+    }
+    callback(result, response);
+  });
+};
+
+REPLConsole.prototype.uninstall = function() {
+  this.container.parentNode.removeChild(this.container);
+};
+
+REPLConsole.prototype.install = function(container) {
+  var _this = this;
+
+  document.onkeydown = function(ev) {
+    if (_this.focused) { _this.onKeyDown(ev); }
+  };
+
+  document.onkeypress = function(ev) {
+    if (_this.focused) { _this.onKeyPress(ev); }
+  };
+
+  document.addEventListener('mousedown', function(ev) {
+    var el = ev.target || ev.srcElement;
+
+    if (el) {
+      do {
+        if (el === container) {
+          _this.focus();
+          return;
+        }
+      } while (el = el.parentNode);
+
+      _this.blur();
+    }
+  });
+
+  // Render the console.
+  container.innerHTML = consoleInnerHtml;
+
+  var consoleOuter = findChild(container, 'console-outer');
+  var consoleActions = findChild(consoleOuter, 'console-actions');
+
+  addClass(container, 'console');
+  addClass(container.getElementsByClassName('layer'), 'pos-absolute border-box');
+  addClass(container.getElementsByClassName('button'), 'border-box');
+  addClass(consoleActions, 'pos-fixed pos-right');
+
+  // Make the console resizable.
+  function resizeContainer(ev) {
+    var startY              = ev.clientY;
+    var startHeight         = parseInt(document.defaultView.getComputedStyle(container).height, 10);
+    var scrollTopStart      = consoleOuter.scrollTop;
+    var clientHeightStart   = consoleOuter.clientHeight;
+
+    var doDrag = function(e) {
+      container.style.height = (startHeight + startY - e.clientY) + 'px';
+      consoleOuter.scrollTop = scrollTopStart + (clientHeightStart - consoleOuter.clientHeight);
+      shiftConsoleActions();
+    };
+
+    var stopDrag = function(e) {
+      document.documentElement.removeEventListener('mousemove', doDrag, false);
+      document.documentElement.removeEventListener('mouseup', stopDrag, false);
+    };
+
+    document.documentElement.addEventListener('mousemove', doDrag, false);
+    document.documentElement.addEventListener('mouseup', stopDrag, false);
+  }
+
+  function closeContainer(ev) {
+    container.parentNode.removeChild(container);
+  }
+
+  var shifted = false;
+  function shiftConsoleActions() {
+    if (consoleOuter.scrollHeight > consoleOuter.clientHeight) {
+      var widthDiff = document.documentElement.clientWidth - consoleOuter.clientWidth;
+      if (shifted || ! widthDiff) return;
+      shifted = true;
+      consoleActions.style.marginRight = widthDiff + 'px';
+    } else if (shifted) {
+      shifted = false;
+      consoleActions.style.marginRight = '0px';
+    }
+  }
+
+  // Initialize
+  this.container = container;
+  this.outer = consoleOuter;
+  this.inner = findChild(this.outer, 'console-inner');
+  this.clipboard = findChild(container, 'clipboard');
+  this.suggestWait = 1500;
+  this.newPromptBox();
+  this.insertCss();
+
+  findChild(container, 'resizer').addEventListener('mousedown', resizeContainer);
+  findChild(consoleActions, 'close-button').addEventListener('click', closeContainer);
+  consoleOuter.addEventListener('DOMNodeInserted', shiftConsoleActions);
+
+  REPLConsole.currentSession = this;
+};
+
+// Add CSS styles dynamically. This probably doesnt work for IE <8.
+REPLConsole.prototype.insertCss = function() {
+  if (document.getElementById(styleElementId)) {
+    return; // already inserted
+  }
+  var style = document.createElement('style');
+  style.type = 'text/css';
+  style.innerHTML = consoleStyleCss;
+  style.id = styleElementId;
+  document.getElementsByTagName('head')[0].appendChild(style);
+};
+
+REPLConsole.prototype.focus = function() {
+  if (! this.focused) {
+    this.focused = true;
+    if (! hasClass(this.inner, "console-focus")) {
+      addClass(this.inner, "console-focus");
+    }
+    this.scrollToBottom();
+  }
+};
+
+REPLConsole.prototype.blur = function() {
+  this.focused = false;
+  removeClass(this.inner, "console-focus");
+};
+
+/**
+ * Add a new empty prompt box to the console.
+ */
+REPLConsole.prototype.newPromptBox = function() {
+  // Remove the caret from previous prompt display if any.
+  if (this.promptDisplay) {
+    this.removeCaretFromPrompt();
+  }
+
+  var promptBox = document.createElement('div');
+  promptBox.className = "console-prompt-box";
+  promptBox.innerHTML = promptBoxHtml;
+  this.promptLabel = promptBox.getElementsByClassName('console-prompt-label')[0];
+  this.promptDisplay = promptBox.getElementsByClassName('console-prompt-display')[0];
+  // Render the prompt box
+  this.setInput("");
+  this.promptLabel.innerHTML = this.prompt;
+  this.inner.appendChild(promptBox);
+  this.scrollToBottom();
+};
+
+/**
+ * Remove the caret from the prompt box,
+ * mainly before adding a new prompt box.
+ * For simplicity, just re-render the prompt box
+ * with caret position -1.
+ */
+REPLConsole.prototype.removeCaretFromPrompt = function() {
+  this.setInput(this._input, -1);
+};
+
+REPLConsole.prototype.getSuggestion = function(keyword) {
+  var self = this;
+
+  function show(found) {
+    if (!found) return;
+    var hint = self.promptDisplay.childNodes[1];
+    hint.className = 'console-hint';
+    hint.dataset.keyword = found;
+    hint.innerText = found.substr(self.suggestKeyword.length);
+    // clear hinting information after timeout in a few time 
+    if (self.suggestTimeout) clearTimeout(self.suggestTimeout);
+    self.suggestTimeout = setTimeout(function() { self.renderInput() }, self.suggestWait);
+  }
+
+  function find(context) {
+    var k = self.suggestKeyword;
+    for (var i = 0; i < context.length; ++i) if (context[i].substr(0, k.length) === k) {
+      if (context[i] === k) return;
+      return context[i];
+    }
+  }
+
+  function request(keyword, callback) {
+    self.contextRequest(keyword, function(err, res) {
+      if (err) throw new Error(err);
+      var c = flatten(res['context']);
+      c.sort();
+      callback(c);
+    });
+  }
+
+  self.suggestKeyword = keyword;
+  var input = getContext(keyword);
+  if (keyword.length - input.length < 3) return;
+
+  if (self.suggestInput !== input) {
+    self.suggestInput = input;
+    request(keyword, function(c) {
+      show(find(self.suggestContext = c));
+    });
+  } else if (self.suggestContext) {
+    show(find(self.suggestContext));
+  }
+};
+
+REPLConsole.prototype.getHintKeyword = function() {
+  var hint = this.promptDisplay.childNodes[1];
+  return hint.className === 'console-hint' && hint.dataset.keyword;
+};
+
+REPLConsole.prototype.setInput = function(input, caretPos) {
+  if (input == null) return; // keep value if input is undefined
+  this._caretPos = caretPos === undefined ? input.length : caretPos;
+  this._input = input;
+  if (this.autocomplete) this.autocomplete.refine(this.getCurrentWord());
+  this.renderInput();
+  if (!this.autocomplete && input.length == this._caretPos) this.getSuggestion(this.getCurrentWord());
+};
+
+/**
+ * Add some text to the existing input.
+ */
+REPLConsole.prototype.addToInput = function(val, caretPos) {
+  caretPos = caretPos || this._caretPos;
+  var before = this._input.substring(0, caretPos);
+  var after = this._input.substring(caretPos, this._input.length);
+  var newInput =  before + val + after;
+  this.setInput(newInput, caretPos + val.length);
+};
+
+/**
+ * Render the input prompt. This is called whenever
+ * the user input changes, sometimes not very efficient.
+ */
+REPLConsole.prototype.renderInput = function() {
+  // Clear the current input.
+  removeAllChildren(this.promptDisplay);
+
+  var before, current, after;
+  var center = document.createElement('span');
+
+  if (this._caretPos < 0) {
+    before = this._input;
+    current = after = "";
+  } else if (this._caretPos === this._input.length) {
+    before = this._input;
+    current = "\u00A0";
+    after = "";
+  } else {
+    before = this._input.substring(0, this._caretPos);
+    current = this._input.charAt(this._caretPos);
+    after = this._input.substring(this._caretPos + 1, this._input.length);
+  }
+
+  this.promptDisplay.appendChild(document.createTextNode(before));
+  this.promptDisplay.appendChild(center);
+  this.promptDisplay.appendChild(document.createTextNode(after));
+
+  var hint = this.autocomplete && this.autocomplete.getSelectedWord();
+  addClass(center, hint ? 'console-hint' : 'console-cursor');
+  center.appendChild(document.createTextNode(hint ? hint.substr(this.getCurrentWord().length) : current));
+};
+
+REPLConsole.prototype.writeOutput = function(output) {
+  var consoleMessage = document.createElement('pre');
+  consoleMessage.className = "console-message";
+  consoleMessage.innerHTML = escapeHTML(output);
+  this.inner.appendChild(consoleMessage);
+  this.newPromptBox();
+  return consoleMessage;
+};
+
+REPLConsole.prototype.writeError = function(output) {
+  var consoleMessage = this.writeOutput(output);
+  addClass(consoleMessage, "error-message");
+  return consoleMessage;
+};
+
+REPLConsole.prototype.onEnterKey = function() {
+  var input = this._input;
+
+  if(input != "" && input !== undefined) {
+    this.commandStorage.addCommand(input);
+  }
+
+  this.commandHandle(input);
+};
+
+REPLConsole.prototype.onTabKey = function() {
+  var self = this;
+
+  var hintKeyword;
+  if (hintKeyword = self.getHintKeyword()) {
+    self.swapCurrentWord(hintKeyword);
+    return;
+  }
+
+  if (self.autocomplete) return;
+  self.autocomplete = new Autocomplete([]);
+
+  self.contextRequest(self.getCurrentWord(), function(err, obj) {
+    if (err) return self.autocomplete = false;
+    self.autocomplete = new Autocomplete(obj['context'], self.getCurrentWord());
+    self.inner.appendChild(self.autocomplete.view);
+    self.autocomplete.onFinished(function(word) {
+      self.swapCurrentWord(word);
+      self.autocomplete = false;
+    });
+    self.scrollToBottom();
+  });
+};
+
+REPLConsole.prototype.onNavigateHistory = function(offset) {
+  var command = this.commandStorage.navigate(offset) || "";
+  this.setInput(command);
+};
+
+/**
+ * Handle control keys like up, down, left, right.
+ */
+REPLConsole.prototype.onKeyDown = function(ev) {
+  if (this.autocomplete && this.autocomplete.onKeyDown(ev)) {
+    this.renderInput();
+    ev.preventDefault();
+    ev.stopPropagation();
+    return;
+  }
+
+  switch (ev.keyCode) {
+    case 69:
+      // Ctrl-E
+      if (ev.ctrlKey) {
+        this.onTabKey();
+        ev.preventDefault();
+      }
+      break;
+    case 9:
+      // Tab
+      this.onTabKey();
+      ev.preventDefault();
+      break;
+    case 13:
+      // Enter key
+      this.onEnterKey();
+      ev.preventDefault();
+      break;
+    case 80:
+      // Ctrl-P
+      if (! ev.ctrlKey) break;
+    case 38:
+      // Up arrow
+      this.onNavigateHistory(-1);
+      ev.preventDefault();
+      break;
+    case 78:
+      // Ctrl-N
+      if (! ev.ctrlKey) break;
+    case 40:
+      // Down arrow
+      this.onNavigateHistory(1);
+      ev.preventDefault();
+      break;
+    case 37:
+      // Left arrow
+      var caretPos = this._caretPos > 0 ? this._caretPos - 1 : this._caretPos;
+      this.setInput(this._input, caretPos);
+      ev.preventDefault();
+      break;
+    case 39:
+      // Right arrow
+      var length = this._input.length;
+      var caretPos = this._caretPos < length ? this._caretPos + 1 : this._caretPos;
+      this.setInput(this._input, caretPos);
+      ev.preventDefault();
+      break;
+    case 8:
+      // Delete
+      this.deleteAtCurrent();
+      ev.preventDefault();
+      break;
+    default:
+      break;
+  }
+
+  if (ev.ctrlKey || ev.metaKey) {
+    // Set focus to our clipboard in case they hit the "v" key
+    this.clipboard.focus();
+    if (ev.keyCode == 86) {
+      // Pasting to clipboard doesn't happen immediately,
+      // so we have to wait for a while to get the pasted text.
+      var _this = this;
+      setTimeout(function() {
+        _this.addToInput(_this.clipboard.value);
+        _this.clipboard.value = "";
+        _this.clipboard.blur();
+      }, 10);
+    }
+  }
+
+  ev.stopPropagation();
+};
+
+/**
+ * Handle input key press.
+ */
+REPLConsole.prototype.onKeyPress = function(ev) {
+  // Only write to the console if it's a single key press.
+  if (ev.ctrlKey || ev.metaKey) { return; }
+  var keyCode = ev.keyCode || ev.which;
+  this.insertAtCurrent(String.fromCharCode(keyCode));
+  ev.stopPropagation();
+  ev.preventDefault();
+};
+
+/**
+ * Delete a character at the current position.
+ */
+REPLConsole.prototype.deleteAtCurrent = function() {
+  if (this._caretPos > 0) {
+    var caretPos = this._caretPos - 1;
+    var before = this._input.substring(0, caretPos);
+    var after = this._input.substring(this._caretPos, this._input.length);
+    this.setInput(before + after, caretPos);
+
+    if (!this._input) {
+      this.autocomplete && this.autocomplete.cancel();
+      this.autocomplete = false;
+    }
+  }
+};
+
+/**
+ * Insert a character at the current position.
+ */
+REPLConsole.prototype.insertAtCurrent = function(char) {
+  var before = this._input.substring(0, this._caretPos);
+  var after = this._input.substring(this._caretPos, this._input.length);
+  this.setInput(before + char + after, this._caretPos + 1);
+};
+
+REPLConsole.prototype.swapCurrentWord = function(next) {
+  function right(s, pos) {
+    var x = s.indexOf(' ', pos);
+    return x === -1 ? s.length : x;
+  }
+
+  function swap(s, pos) {
+    return s.substr(0, s.lastIndexOf(' ', pos) + 1) + next + s.substr(right(s, pos))
+  }
+
+  if (!next) return;
+  var swapped = swap(this._input, this._caretPos);
+  this.setInput(swapped, this._caretPos + swapped.length - this._input.length);
+};
+
+REPLConsole.prototype.getCurrentWord = function() {
+  return (function(s, pos) {
+    var left = s.lastIndexOf(' ', pos);
+    if (left === -1) left = 0;
+    var right = s.indexOf(' ', pos)
+    if (right === -1) right = s.length - 1;
+    return s.substr(left, right - left + 1).replace(/^\s+|\s+$/g,'');
+  })(this._input, this._caretPos);
+};
+
+REPLConsole.prototype.scrollToBottom = function() {
+  this.outer.scrollTop = this.outer.scrollHeight;
+};
+
+// Change the binding of the console
+REPLConsole.prototype.switchBindingTo = function(frameId, callback) {
+  var url = this.getSessionUrl('trace');
+  var params = "frame_id=" + encodeURIComponent(frameId);
+  postRequest(url, params, callback);
+};
+
+/**
+ * Install the console into the element with a specific ID.
+ * Example: REPLConsole.installInto("target-id")
+ */
+REPLConsole.installInto = function(id, options) {
+  var consoleElement = document.getElementById(id);
+
+  options = options || {};
+
+  for (var prop in consoleElement.dataset) {
+    options[prop] = options[prop] || consoleElement.dataset[prop];
+  }
+
+  var replConsole = new REPLConsole(options);
+  replConsole.install(consoleElement);
+  return replConsole;
+};
+
+// This is to store the latest single session, and the stored session
+// is updated by the REPLConsole#install() method.
+// It allows to operate the current session from the other scripts.
+REPLConsole.currentSession = null;
+
+// This line is for the Firefox Add-on, because it doesn't have XMLHttpRequest as default.
+// And so we need to require a module compatible with XMLHttpRequest from SDK.
+REPLConsole.XMLHttpRequest = typeof XMLHttpRequest === 'undefined' ? null : XMLHttpRequest;
+
+REPLConsole.request = function request(method, url, params, callback) {
+  var xhr = new REPLConsole.XMLHttpRequest();
+
+  xhr.open(method, url, true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+  xhr.setRequestHeader("Accept", "application/vnd.web-console.v2");
+  xhr.send(params);
+
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      callback(xhr);
+    }
+  };
+};
+
+// DOM helpers
+function hasClass(el, className) {
+  var regex = new RegExp('(?:^|\\s)' + className + '(?!\\S)', 'g');
+  return el.className && el.className.match(regex);
+}
+
+function isNodeList(el) {
+  return typeof el.length === 'number' &&
+    typeof el.item === 'function';
+}
+
+function addClass(el, className) {
+  if (isNodeList(el)) {
+    for (var i = 0; i < el.length; ++ i) {
+      addClass(el[i], className);
+    }
+  } else if (!hasClass(el, className)) {
+    el.className += " " + className;
+  }
+}
+
+function removeClass(el, className) {
+  var regex = new RegExp('(?:^|\\s)' + className + '(?!\\S)', 'g');
+  el.className = el.className.replace(regex, '');
+}
+
+function removeAllChildren(el) {
+  while (el.firstChild) {
+    el.removeChild(el.firstChild);
+  }
+}
+
+function findChild(el, className) {
+  for (var i = 0; i < el.childNodes.length; ++ i) {
+    if (hasClass(el.childNodes[i], className)) {
+      return el.childNodes[i];
+    }
+  }
+}
+
+function escapeHTML(html) {
+  return html
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#x27;')
+    .replace(/`/g, '&#x60;');
+}
+
+// XHR helpers
+function postRequest() {
+  REPLConsole.request.apply(this, ["POST"].concat([].slice.call(arguments)));
+}
+
+function putRequest() {
+  REPLConsole.request.apply(this, ["PUT"].concat([].slice.call(arguments)));
+}
+
+if (typeof exports === 'object') {
+  exports.REPLConsole = REPLConsole;
+} else {
+  window.REPLConsole = REPLConsole;
+}
+
+// Split string by module operators of ruby
+function getContext(s) {
+  var methodOp = s.lastIndexOf('.');
+  var moduleOp = s.lastIndexOf('::');
+  var x = methodOp > moduleOp ? methodOp : moduleOp;
+  return x !== -1 ? s.substr(0, x) : '';
+}
+
+function flatten(arrays) {
+  return Array.prototype.concat.apply([], arrays);
+}
+
+}).call(this);
+</script>
+
+<script type="text/javascript" data-template="main">
+(function() {
+  REPLConsole.installInto('console');
+
+}).call(this);
+</script>
+
+
+  <script type="text/javascript" data-template="error_page">
+(function() {
+  // Try intercept traces links in Rails 4.2.
+var traceFrames = document.getElementsByClassName('trace-frames');
+var selectedFrame, currentSource = document.getElementById('frame-source-0');
+
+// Add click listeners for all stack frames
+for (var i = 0; i < traceFrames.length; i++) {
+  traceFrames[i].addEventListener('click', function(e) {
+    e.preventDefault();
+    var target = e.target;
+    var frameId = target.dataset.frameId;
+
+    // Change the binding of the console.
+    changeBinding(frameId, function() {
+      if (selectedFrame) {
+        selectedFrame.className = selectedFrame.className.replace("selected", "");
+      }
+
+      target.className += " selected";
+      selectedFrame = target;
+    });
+
+    // Change the extracted source code
+    changeSourceExtract(frameId);
+  });
+}
+
+function changeBinding(frameId, callback) {
+  REPLConsole.currentSession.switchBindingTo(frameId, callback);
+}
+
+function changeSourceExtract(frameId) {
+  var el = document.getElementById('frame-source-' + frameId);
+  if (currentSource && el) {
+    currentSource.className += " hidden";
+    el.className = el.className.replace(" hidden", "");
+    currentSource = el;
+  }
+}
+
+// Push the error page body upwards the size of the console.
+//
+// While, I wouldn't like to do that on every custom page (so I don't screw
+// user's layouts), I think a lot of developers want to see all of the content
+// on the default Rails error page.
+//
+// Since it's quite special as is now, being a bit more special in the name of
+// better user experience, won't hurt.
+document.addEventListener('DOMContentLoaded', function() {
+  var consoleElement = document.getElementById('console');
+  var resizerElement = consoleElement.getElementsByClassName('resizer')[0];
+  var containerElement = document.getElementById('container');
+
+  function setContainerElementBottomMargin(pixels) {
+    containerElement.style.marginBottom = pixels + 'px';
+  }
+
+  var currentConsoleElementHeight = consoleElement.offsetHeight;
+  setContainerElementBottomMargin(currentConsoleElementHeight);
+
+  resizerElement.addEventListener('mousedown', function(event) {
+    function recordConsoleElementHeight(event) {
+      resizerElement.removeEventListener('mouseup', recordConsoleElementHeight);
+
+      var currentConsoleElementHeight = consoleElement.offsetHeight;
+      setContainerElementBottomMargin(currentConsoleElementHeight);
+    }
+
+    resizerElement.addEventListener('mouseup', recordConsoleElementHeight);
+  });
+});
+
+}).call(this);
+</script>
+
+</body>
+</html>
