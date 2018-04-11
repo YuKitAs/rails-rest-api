@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  get 'posts' => 'posts#index'
-  get 'posts/:id' => 'posts#show'
-  post 'posts' => 'posts#create'
-  put 'posts/:id' => 'posts#update'
-  delete 'posts/:id' => 'posts#destroy'
+  get "posts" => "posts#index"
+  get "posts/:id" => "posts#show"
+  post "posts" => "posts#create"
+  put "posts/:id" => "posts#update"
+  delete "posts/:id" => "posts#destroy"
 
-  root 'posts#index'
+  post "register" => "users#register"
+  post "login" => "authentication#login"
 end
