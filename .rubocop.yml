@@ -1,0 +1,132 @@
+AllCops:
+  TargetRubyVersion: 2.4
+
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+Layout/BlockAlignment:
+  EnforcedStyleAlignWith: start_of_line
+Layout/ClassStructure:
+  Enabled: true
+  Categories:
+    module_inclusion:
+      - include
+      - prepend
+      - extend
+    attribute:
+      - attr_accessor
+      - attr_reader
+      - attr_writer
+  ExpectedOrder:
+    - module_inclusion
+    - constants
+    - public_class_methods
+    - initializer
+    - attribute
+    - public_methods
+    - protected_methods
+    - private_methods
+Layout/DefEndAlignment:
+  AutoCorrect: true
+Layout/EmptyLineBetweenDefs:
+  AllowAdjacentOneLineDefs: true
+Layout/EndAlignment:
+  AutoCorrect: true
+Layout/IndentArray:
+  EnforcedStyle: consistent
+Layout/IndentHash:
+  EnforcedStyle: consistent
+Layout/MultilineAssignmentLayout:
+  Enabled: true
+  EnforcedStyle: same_line
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+Layout/SpaceBeforeBlockBraces:
+  EnforcedStyle: no_space
+
+Metrics/AbcSize:
+  Enabled: false
+Metrics/BlockLength:
+  Exclude:
+    - '**/*_spec.rb'
+Metrics/ClassLength:
+  Max: 200
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/LineLength:
+  Max: 120
+Metrics/MethodLength:
+  Max: 40
+Metrics/ModuleLength:
+  Max: 200
+Metrics/ParameterLists:
+  Max: 4
+  CountKeywordArgs: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Naming/AccessorMethodName:
+  Enabled: false
+Naming/PredicateName:
+  Enabled: false
+
+Performance/Caller:
+  Enabled: false
+
+Style/BeginBlock:
+  Enabled: false
+Style/BlockDelimiters:
+  EnforcedStyle: braces_for_chaining
+Style/BracesAroundHashParameters:
+  EnforcedStyle: context_dependent
+Style/ClassCheck:
+  EnforcedStyle: kind_of?
+Style/Documentation:
+  Enabled: false
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+Style/GuardClause:
+  Enabled: false
+Style/HashSyntax:
+  EnforcedStyle: ruby19_no_mixed_keys
+Style/IfUnlessModifier:
+  Enabled: false
+Style/ImplicitRuntimeError:
+  Enabled: true
+Style/Lambda:
+  EnforcedStyle: literal
+Style/MethodCallWithArgsParentheses:
+  Enabled: true
+  IgnoredMethods:
+    - attribute
+    - component
+    - require
+    - require_relative
+    - describe
+    - define
+    - before
+    - after
+    - it
+    - to
+    - not_to
+    - be
+    - eq
+Style/PreferredHashMethods:
+  EnforcedStyle: verbose
+Style/RedundantException:
+  Enabled: false
+Style/RedundantReturn:
+  Enabled: false
+Style/SingleLineMethods:
+  Enabled: false
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+Style/SymbolArray:
+  EnforcedStyle: brackets
+Style/WordArray:
+  EnforcedStyle: brackets
