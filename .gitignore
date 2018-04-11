@@ -8,6 +8,7 @@ db/*.sqlite3-journal
 # Ignore all logfiles and tempfiles.
 log/*
 tmp/*
-log/.keep
-tmp/.keep
-vendor/.keep
+!/log/.keep
+!/tmp/.keep
+
+.byebug_history
