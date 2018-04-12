@@ -2,7 +2,9 @@
 
 ## Usage
 
-**Install all gems in `Gemfile`**:
+### Setup
+
+**Install all gems**:
 
 ```console
 $ bundle install
@@ -14,16 +16,10 @@ $ bundle install
 $ rake db:migrate
 ```
 
-**Feed the database with default posts**:
+**Feed the database with default seeds**:
 
 ```console
 $ rake db:seeds
-```
-
-**Run all unit tests with RSpec**:
-
-```console
-$ rspec spec
 ```
 
 **Start the web server on `http://localhost:3000` by default**:
@@ -31,6 +27,32 @@ $ rspec spec
 ```console
 $ rails server
 ```
+
+**Run all RSpec tests and Rubocop**:
+
+```console
+$ rake test
+```
+
+### Authentication
+
+**Create a new user**:
+
+```console
+$ curl -X POST -H 'Content-type: application/json' -d '{"email": "user@email.com", "password": "mypassword"}' localhost:3000/register
+```
+
+**Authenticate a user**:
+
+```console
+$ curl -X POST -H 'Content-type: application/json' -d '{"email": "user@email.com", "password": "mypassword"}' localhost:3000/login
+```
+
+On successful login, `{"auth_token": <token>}` will be returned.
+
+### CRUD
+
+To access the posts, add `-H 'Authorization: <token>'` to the header of every following request.
 
 **List all posts**:
 
