@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/YuKitAs/rails-rest-api.svg?branch=master)](https://travis-ci.org/YuKitAs/rails-rest-api)
+
 # Rails Rest API
 
 ## Usage
