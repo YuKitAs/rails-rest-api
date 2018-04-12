@@ -160,6 +160,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.5)
   rspec
+  rspec-mocks
   rspec-rails
   simple_command
   spring
