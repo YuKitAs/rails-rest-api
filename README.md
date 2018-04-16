@@ -41,16 +41,16 @@ $ rake test
 **Create a new user**:
 
 ```console
-$ curl -X POST -H 'Content-type: application/json' -d '{"email": "user@email.com", "password": "mypassword"}' localhost:3000/register
+$ curl -X POST -H 'Content-type: application/json' -d '{"email": "testuser@email.com", "password": "testuser123"}' localhost:3000/register
 ```
 
 **Authenticate a user**:
 
 ```console
-$ curl -X POST -H 'Content-type: application/json' -d '{"email": "user@email.com", "password": "mypassword"}' localhost:3000/login
+$ curl -X POST -H 'Content-type: application/json' -d '{"email": "test@email.com", "password": "testuser123"}' localhost:3000/login
 ```
 
-On successful login, `{"auth_token": <token>}` will be returned.
+On successful login, `{"auth_token": <token>}` will be returned. This token will be expired after 24 hours.
 
 ### CRUD
 
@@ -67,6 +67,8 @@ $ curl -X GET localhost:3000/posts
 ```console
 $ curl -X GET localhost:3000/posts/<id>
 ```
+
+The following actions are only for users with admin rights. A default admin user is definded in `db/seeds.rb`, use `{"email": "admin@email.com", "password": "admin123"}` to login as admin user.
   
 **Create a new post**:
 
