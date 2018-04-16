@@ -47,7 +47,7 @@ $ curl -X POST -H 'Content-type: application/json' -d '{"email": "testuser@email
 **Authenticate a user**:
 
 ```console
-$ curl -X POST -H 'Content-type: application/json' -d '{"email": "test@email.com", "password": "testuser123"}' localhost:3000/login
+$ curl -X POST -H 'Content-type: application/json' -d '{"email": "testuser@email.com", "password": "testuser123"}' localhost:3000/login
 ```
 
 On successful login, `{"auth_token": <token>}` will be returned. This token will be expired after 24 hours.
