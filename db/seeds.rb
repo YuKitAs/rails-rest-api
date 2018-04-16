@@ -10,6 +10,7 @@ Post.create([
 ])
 
 User.create([
-  email: "test@email.com",
-  password: "test123"
+  email: "admin@email.com",
+  password: "admin123",
+  admin: true
 ])
