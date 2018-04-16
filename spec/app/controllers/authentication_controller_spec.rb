@@ -1,7 +1,10 @@
+require_relative "../../utils/fixture_reader"
+
 RSpec.describe AuthenticationController, type: :controller do
   before :each do
-    @email = "example@email.com"
-    @password = "example123"
+    users = read_fixture("users.json")
+    @email = users["testUser"]["email"]
+    @password = users["testUser"]["password"]
     User.create!(email: @email, password: @password)
   end
 
@@ -13,13 +16,13 @@ RSpec.describe AuthenticationController, type: :controller do
   end
 
   it "returns error on incorrect credentials" do
-    post :login, params: { email: @email, password: "test123" }
+    post :login, params: { email: @email, password: "nopassword" }
 
     expect(response.message).to eq "Unauthorized"
   end
 
   it "returns error on unregistered user" do
-    post :login, params: { email: "test@email.com", password: "test123" }
+    post :login, params: { email: "nouser@email.com", password: "nopassword" }
 
     expect(response.message).to eq "Not Found"
   end

@@ -1,0 +1,10 @@
+{
+  "post": {
+    "title": "Hello",
+    "content": "Hello world!"
+  },
+  "newPost": {
+    "title": "Goodbye",
+    "content": "Goodbye world!"
+  }
+}
