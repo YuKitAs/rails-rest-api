@@ -14,4 +14,10 @@ RSpec.describe JwtService do
     expect(payload["user_id"]).to be 42
     expect(payload).to include("exp")
   end
+
+  it "returns nil on incorrect token" do
+    token = "hello.world"
+
+    expect(JwtService.decode(token)).to be_nil
+  end
 end

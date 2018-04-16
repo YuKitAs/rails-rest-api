@@ -1,22 +1,7 @@
 class ApplicationController < ActionController::API
-  rescue_from StandardError, with: :exception
-  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+  include TokenAuthenticatable
+  include AdminAuthorizable
 
-  before_action :authenticate_request
-  attr_reader :current_user
-
-  def not_found
-    render(json: { error: "Not found" }, status: 404)
-  end
-
-  def exception
-    render(json: { error: "Internal server error" }, status: 500)
-  end
-
-  private
-
-  def authenticate_request
-    @current_user = AuthorizeApiRequest.call(request.headers).result
-    render(json: { error: "Unauthorized" }, status: 401) unless @current_user
-  end
+  rescue_from ActiveRecord::RecordNotFound, with: ->{ render json: { error: "Not Found" }, status: 404 }
+  rescue_from ActiveRecord::RecordInvalid, with: ->{ render json: { error: "Bad Request" }, statsu: 400 }
 end
