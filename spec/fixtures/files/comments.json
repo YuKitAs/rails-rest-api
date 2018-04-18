@@ -1,0 +1,10 @@
+{
+  "comment": {
+    "name": "anonymA",
+    "message": "foo bar"
+  },
+  "newComment": {
+    "name": "anonymB",
+    "message": "baz qux"
+  }
+}

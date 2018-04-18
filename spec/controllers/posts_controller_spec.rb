@@ -1,17 +1,18 @@
-require_relative "../../utils/fixture_reader"
+require_relative "user_authorizer"
 require "json"
 
 RSpec.describe PostsController, type: "controller" do
   before :each do
-    posts = read_fixture("posts.json")
+    posts = JSON.parse(file_fixture("posts.json").read)
     @post = posts["post"]
     @new_post = posts["newPost"]
     Post.create!(@post)
+
     @post_id = Post.find_by(title: @post["title"]).id
   end
 
   it "lists all posts" do
-    login
+    login(:user)
     get :index
     body = JSON.parse(response.body)
 
@@ -21,7 +22,7 @@ RSpec.describe PostsController, type: "controller" do
   end
 
   it "shows a single post by id" do
-    login
+    login(:user)
     get :show, params: { id: @post_id }
     body = JSON.parse(response.body)
 
@@ -30,22 +31,25 @@ RSpec.describe PostsController, type: "controller" do
   end
 
   it "creates a new post with admin rights" do
-    admin_login
+    expect(Post.find_by(title: @new_post["title"])).to be_nil
+
+    login(:admin)
     post :create, params: @new_post
     new_post = Post.find_by(title: @new_post["title"])
 
     expect(new_post.content).to eq @new_post["content"]
   end
 
-  it "does not create without admin rights" do
-    login
+  it "does not create post without admin rights" do
+    login(:user)
     post :create, params: @new_post
 
+    expect(response.message).to eq "Forbidden"
     expect(Post.find_by(title: @new_post["title"])).to be_nil
   end
 
   it "updates an existing post by id with admin rights" do
-    admin_login
+    login(:admin)
     put :update, params: { id: @post_id,
                            post: @new_post }
 
@@ -53,52 +57,34 @@ RSpec.describe PostsController, type: "controller" do
     expect(Post.find_by(title: @new_post["title"]).content).to eq @new_post["content"]
   end
 
-  it "does not update without admin rights" do
-    login
+  it "does not update post without admin rights" do
+    login(:user)
     put :update, params: { id: @post_id,
                            post: @new_post }
 
+    expect(response.message).to eq "Forbidden"
     expect(Post.find_by(title: @post["title"])).to be_truthy
     expect(Post.find_by(title: @new_post["title"])).to be_nil
   end
 
   it "deletes an existing post by id with admin rights" do
-    admin_login
+    login(:admin)
     delete :destroy, params: { id: @post_id }
 
     expect(Post.find_by(title: @post["title"])).to be_nil
   end
 
-  it "does not delete without admin rights" do
-    login
+  it "does not delete post without admin rights" do
+    login(:user)
     delete :destroy, params: { id: @post_id }
 
+    expect(response.message).to eq "Forbidden"
     expect(Post.find_by(title: @post["title"])).to be_truthy
   end
 end
 
 private
 
-def users
-  return read_fixture("users.json")
-end
-
-def login
-  user = users["testUser"]
-  user.instance_eval do
-    def admin?
-      return false
-    end
-  end
-  allow(AuthorizeApiRequest).to receive_message_chain(:call, :result){ user }
-end
-
-def admin_login
-  admin_user = users["adminUser"]
-  admin_user.instance_eval do
-    def admin?
-      return true
-    end
-  end
-  allow(AuthorizeApiRequest).to receive_message_chain(:call, :result){ admin_user }
+def login(authorizee)
+  allow(AuthorizeApiRequest).to receive_message_chain(:call, :result){ UserAuthorizer.current_user(authorizee) }
 end

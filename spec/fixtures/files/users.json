@@ -1,10 +1,12 @@
 {
   "adminUser": {
     "email": "admin@email.com",
-    "password": "admin123"
+    "password": "admin123",
+    "admin": true
   },
   "testUser": {
     "email": "testuser@email.com",
-    "password": "testuser123"
+    "password": "testuser123",
+    "admin": false
   }
 }

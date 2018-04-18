@@ -1,8 +1,6 @@
-require_relative "../../utils/fixture_reader"
-
 RSpec.describe UsersController, type: :controller do
   before :each do
-    users = read_fixture("users.json")
+    users = JSON.parse(file_fixture("users.json").read)
     @email = users["testUser"]["email"]
     @password = users["testUser"]["password"]
     User.create!(email: @email, password: @password)
