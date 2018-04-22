@@ -1,5 +1,4 @@
 require_relative "user_authorizer"
-require "json"
 
 RSpec.describe CommentsController, type: "controller" do
   before :each do
@@ -96,6 +95,6 @@ end
 
 private
 
-def login(authorizee)
-  allow(AuthorizeApiRequest).to receive_message_chain(:call, :result){ UserAuthorizer.current_user(authorizee) }
+def login(access_level)
+  allow(AuthorizeApiRequest).to receive_message_chain(:call, :result){ UserAuthorizer.current_user(access_level) }
 end

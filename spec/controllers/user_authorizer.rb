@@ -1,21 +1,13 @@
 class UserAuthorizer
-  def self.current_user(authorizee)
-    user = User.new(email: "test@email.com", password: "nopassword")
+  def self.current_user(access_level)
+    current_user = User.new(email: "test@email.com", password: "nopassword")
 
-    if authorizee == :admin
-      user.instance_eval do
-        def admin?
-          return true
-        end
-      end
-    else
-      user.instance_eval do
-        def admin?
-          return false
-        end
+    current_user.instance_exec(access_level) do |level|
+      define_singleton_method(:admin?) do
+        return level == :admin
       end
     end
 
-    return user
+    return current_user
   end
 end
