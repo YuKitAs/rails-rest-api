@@ -36,20 +36,20 @@ $ rake test
 
 ## Usage
 
-| Endpoints    | Actions|
-| ------------ | -----:|
-| POST /register| Create a user|
-| POST /login   | Authenticate a user |
-| GET /posts    | List all posts|
-| GET /posts/:post_id | Show a single post |
-| POST /posts | Create a post |
-| PUT /posts/:post_id | Update a post |
-| DELETE /posts/:post_id | Delete a post |
-| GET /posts/:post_id/comments | List all comments of a post |
-| GET /posts/:post_id/comments/:comment_id | Show a single comment |
-| POST /posts/:post_id/comments | Create a comment |
-| PUT /posts/:post_id/comments/:comment_id | Update a comment |
-| DELETE /posts/:post_id/comments/:comment_id | Delete a comment |
+| HTTP verbs | Paths  | Used for |
+| ---------- | ------ | --------:|
+| POST | /register| Create a user|
+| POST | /login   | Authenticate a user |
+| GET | /posts    | List all posts|
+| GET | /posts/:post_id | Show a single post |
+| POST | /posts | Create a post |
+| PUT | /posts/:post_id | Update a post |
+| DELETE | /posts/:post_id | Delete a post |
+| GET | /posts/:post_id/comments | List all comments of a post |
+| GET | /posts/:post_id/comments/:comment_id | Show a single comment |
+| POST | /posts/:post_id/comments | Create a comment |
+| PUT | /posts/:post_id/comments/:comment_id | Update a comment |
+| DELETE | /posts/:post_id/comments/:comment_id | Delete a comment |
 
 ## Use Case Examples
 
