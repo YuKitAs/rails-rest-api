@@ -5,80 +5,100 @@ RSpec.describe PostsController, type: "controller" do
     posts = JSON.parse(file_fixture("posts.json").read)
     @post = posts["post"]
     @new_post = posts["newPost"]
-    Post.create!(@post)
-
-    @post_id = Post.find_by(title: @post["title"]).id
+    @post_id = Post.create!(@post).to_param
   end
 
-  it "lists all posts" do
-    login(:user)
-    get :index
-    body = JSON.parse(response.body)
+  describe "GET #index" do
+    it "lists all posts" do
+      login(:user)
+      Post.create!(@new_post)
+      get :index
 
-    expect(response.message).to eq "OK"
-    expect(body.size).to be 1
-    expect(body.first).to include("title" => @post["title"], "content" => @post["content"])
+      expect(response).to be_success
+      expect(JSON.parse(response.body).size).to be 2
+    end
   end
 
-  it "shows a single post by id" do
-    login(:user)
-    get :show, params: { id: @post_id }
-    body = JSON.parse(response.body)
+  describe "GET #show" do
+    it "shows a single post by id" do
+      login(:user)
+      get :show, params: { id: @post_id }
+      body = JSON.parse(response.body)
 
-    expect(response.message).to eq "OK"
-    expect(body).to include("title" => @post["title"], "content" => @post["content"])
+      expect(response).to be_success
+      expect(body["title"]).to eq @post["title"]
+      expect(body["content"]).to eq @post["content"]
+    end
   end
 
-  it "creates a new post with admin rights" do
-    expect(Post.find_by(title: @new_post["title"])).to be_nil
+  describe "POST #create" do
+    context "with admin rights" do
+      it "creates a new post" do
+        expect(Post.find_by(title: @new_post["title"])).to be_nil
 
-    login(:admin)
-    post :create, params: @new_post
-    new_post = Post.find_by(title: @new_post["title"])
+        login(:admin)
+        post :create, params: @new_post
 
-    expect(new_post.content).to eq @new_post["content"]
+        expect(Post.find_by(title: @new_post["title"]).content).to eq @new_post["content"]
+      end
+    end
+
+    context "without admin rights" do
+      it "does not create post" do
+        login(:user)
+        post :create, params: @new_post
+
+        expect(response.message).to eq "Forbidden"
+        expect(Post.find_by(title: @new_post["title"])).to be_nil
+      end
+    end
   end
 
-  it "does not create post without admin rights" do
-    login(:user)
-    post :create, params: @new_post
+  describe "PUT #update" do
+    context "with admin rights" do
+      it "updates an existing post by id" do
+        expect(Post.find_by(title: @post["title"]).content).to eq @post["content"]
 
-    expect(response.message).to eq "Forbidden"
-    expect(Post.find_by(title: @new_post["title"])).to be_nil
+        login(:admin)
+        put :update, params: { id: @post_id, post: @new_post }
+
+        expect(Post.find_by(title: @post["title"])).to be_nil
+        expect(Post.find(@post_id).title).to eq @new_post["title"]
+        expect(Post.find(@post_id).content).to eq @new_post["content"]
+      end
+    end
+
+    context "without admin rights" do
+      it "does not update post" do
+        login(:user)
+        put :update, params: { id: @post_id, post: @new_post }
+
+        expect(response.message).to eq "Forbidden"
+        expect(Post.find_by(title: @post["title"]).content).to eq @post["content"]
+        expect(Post.find_by(title: @new_post["title"])).to be_nil
+      end
+    end
   end
 
-  it "updates an existing post by id with admin rights" do
-    login(:admin)
-    put :update, params: { id: @post_id,
-                           post: @new_post }
+  describe "DELETE #destroy" do
+    context "with admin rights" do
+      it "deletes an existing post by id" do
+        login(:admin)
+        delete :destroy, params: { id: @post_id }
 
-    expect(Post.find_by(title: @post["title"])).to be_nil
-    expect(Post.find_by(title: @new_post["title"]).content).to eq @new_post["content"]
-  end
+        expect(Post.find_by(title: @post["title"])).to be_nil
+      end
+    end
 
-  it "does not update post without admin rights" do
-    login(:user)
-    put :update, params: { id: @post_id,
-                           post: @new_post }
+    context "without admin rights" do
+      it "does not delete post" do
+        login(:user)
+        delete :destroy, params: { id: @post_id }
 
-    expect(response.message).to eq "Forbidden"
-    expect(Post.find_by(title: @post["title"])).to be_truthy
-    expect(Post.find_by(title: @new_post["title"])).to be_nil
-  end
-
-  it "deletes an existing post by id with admin rights" do
-    login(:admin)
-    delete :destroy, params: { id: @post_id }
-
-    expect(Post.find_by(title: @post["title"])).to be_nil
-  end
-
-  it "does not delete post without admin rights" do
-    login(:user)
-    delete :destroy, params: { id: @post_id }
-
-    expect(response.message).to eq "Forbidden"
-    expect(Post.find_by(title: @post["title"])).to be_truthy
+        expect(response.message).to eq "Forbidden"
+        expect(Post.find(@post_id)).to be_truthy
+      end
+    end
   end
 end
 

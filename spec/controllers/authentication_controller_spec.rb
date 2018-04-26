@@ -1,27 +1,31 @@
 RSpec.describe AuthenticationController, type: :controller do
   before :each do
-    users = JSON.parse(file_fixture("users.json").read)
-    @email = users["testUser"]["email"]
-    @password = users["testUser"]["password"]
-    User.create!(email: @email, password: @password)
+    @test_user = JSON.parse(file_fixture("users.json").read)["testUser"]
+    User.create!(@test_user)
   end
 
-  it "logs in a registered user with correct credentials" do
-    post :login, params: { email: @email, password: @password }
+  describe "POST #login" do
+    context "with correct credentials" do
+      it "logs in a registered user" do
+        post :login, params: @test_user
 
-    expect(response.message).to eq "OK"
-    expect(response.body).to include("auth_token")
-  end
+        expect(response.message).to eq "OK"
+        expect(response.body).to include("auth_token")
+      end
+    end
 
-  it "returns error on incorrect credentials" do
-    post :login, params: { email: @email, password: "nopassword" }
+    context "with incorrect credentials" do
+      it "returns error Unauthorized" do
+        post :login, params: { email: @test_user["email"], password: "falsepassword" }
 
-    expect(response.message).to eq "Unauthorized"
-  end
+        expect(response.message).to eq "Unauthorized"
+      end
 
-  it "returns error on unregistered user" do
-    post :login, params: { email: "nouser@email.com", password: "nopassword" }
+      it "returns error Not Found" do
+        post :login, params: { email: "nouser@email.com", password: "nopassword" }
 
-    expect(response.message).to eq "Not Found"
+        expect(response.message).to eq "Not Found"
+      end
+    end
   end
 end
