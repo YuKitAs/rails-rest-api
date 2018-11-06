@@ -7,6 +7,7 @@ module AdminAuthorizable
 
   def authorize!(action)
     raise(UnpermittedException) if action != :read && !current_user.admin?
+
     return true
   end
 end
