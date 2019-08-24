@@ -33,7 +33,7 @@ Layout/EndAlignment:
   AutoCorrect: true
 Layout/IndentFirstArrayElement:
   EnforcedStyle: consistent
-Layout/IndentHash:
+Layout/IndentFirstHashElement:
   EnforcedStyle: consistent
 Layout/MultilineAssignmentLayout:
   Enabled: true
