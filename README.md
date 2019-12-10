@@ -19,7 +19,7 @@ $ rake db:migrate
 **Feed the database with default seeds**:
 
 ```console
-$ rake db:seeds
+$ rake db:seed
 ```
 
 **Start the web server on `http://localhost:3000` by default**:
