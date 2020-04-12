@@ -1,7 +1,7 @@
 AllCops:
   TargetRubyVersion: 2.4
 
-Layout/AlignParameters:
+Layout/ParameterAlignment:
   EnforcedStyle: with_fixed_indentation
 Layout/BlockAlignment:
   EnforcedStyleAlignWith: start_of_line
@@ -31,9 +31,9 @@ Layout/EmptyLineBetweenDefs:
   AllowAdjacentOneLineDefs: true
 Layout/EndAlignment:
   AutoCorrect: true
-Layout/IndentFirstArrayElement:
+Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
-Layout/IndentFirstHashElement:
+Layout/FirstHashElementIndentation:
   EnforcedStyle: consistent
 Layout/MultilineAssignmentLayout:
   Enabled: true
@@ -71,15 +71,10 @@ Naming/AccessorMethodName:
 Naming/PredicateName:
   Enabled: false
 
-Performance/Caller:
-  Enabled: false
-
 Style/BeginBlock:
   Enabled: false
 Style/BlockDelimiters:
   EnforcedStyle: braces_for_chaining
-Style/BracesAroundHashParameters:
-  EnforcedStyle: context_dependent
 Style/ClassCheck:
   EnforcedStyle: kind_of?
 Style/Documentation:
