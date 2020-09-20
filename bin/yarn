@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 VENDOR_PATH = File.expand_path("..", __dir__)
+# rubocop:disable Style/RedundantBegin
 Dir.chdir(VENDOR_PATH) do
   begin
     exec("yarnpkg #{ARGV.join(" ")}")
@@ -9,3 +10,4 @@ Dir.chdir(VENDOR_PATH) do
     exit(1)
   end
 end
+# rubocop:enable Style/RedundantBegin

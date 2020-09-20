@@ -1,5 +1,7 @@
 AllCops:
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.5
+  Excludes:
+    - db/**
 
 Layout/ParameterAlignment:
   EnforcedStyle: with_fixed_indentation
