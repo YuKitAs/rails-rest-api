@@ -29,7 +29,7 @@ group :test do
   gem("database_cleaner")
   gem("rspec")
   gem("rspec-mocks")
-  gem("shoulda-matchers", "~> 3.1")
+  gem("shoulda-matchers", "~> 4.4.0")
 end
 
 gem("tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby])
