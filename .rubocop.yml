@@ -1,7 +1,11 @@
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.6
   Exclude:
     - db/**
+
+inherit_mode:
+  merge:
+    - Exclude
 
 Layout/ParameterAlignment:
   EnforcedStyle: with_fixed_indentation
@@ -46,6 +50,8 @@ Layout/MultilineOperationIndentation:
   EnforcedStyle: indented
 Layout/SpaceBeforeBlockBraces:
   EnforcedStyle: no_space
+Layout/LineLength:
+  Max: 120
 
 Metrics/AbcSize:
   Enabled: false
@@ -56,8 +62,6 @@ Metrics/ClassLength:
   Max: 200
 Metrics/CyclomaticComplexity:
   Enabled: false
-Metrics/LineLength:
-  Max: 120
 Metrics/MethodLength:
   Max: 40
 Metrics/ModuleLength:
