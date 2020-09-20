@@ -7,7 +7,7 @@ end
 
 gem("bcrypt", "~> 3.1.7")
 gem("jwt", "~> 2.1.0")
-gem("puma", "~> 3.12")
+gem("puma", "~> 5.0.0")
 gem("rails", "~> 5.2.3")
 gem("rubocop")
 gem("sqlite3")
@@ -19,10 +19,10 @@ group :development, :test do
 end
 
 group :development do
-  gem("listen", ">= 3.0.5", "< 3.2")
+  gem("listen", "~> 3.2.0")
   gem("spring")
   gem("spring-watcher-listen", "~> 2.0.0")
-  gem("web-console", ">= 3.3.0")
+  gem("web-console", "~> 3.7.0")
 end
 
 group :test do
