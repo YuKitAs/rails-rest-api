@@ -6,7 +6,7 @@ module TokenAuthenticatable
 
     attr_reader :current_user
 
-    rescue_from UnauthorizedException, with: ->{ render json: { error: "Unauthorized" }, status: 401 }
+    rescue_from UnauthorizedException, with: ->{ render(json: { error: "Unauthorized" }, status: 401) }
   end
 
   private

@@ -2,7 +2,7 @@ module AdminAuthorizable
   extend ActiveSupport::Concern
 
   included do
-    rescue_from UnpermittedException, with: ->{ render json: { error: "Forbidden" }, status: 403 }
+    rescue_from UnpermittedException, with: ->{ render(json: { error: "Forbidden" }, status: 403) }
   end
 
   def authorize!(action)
