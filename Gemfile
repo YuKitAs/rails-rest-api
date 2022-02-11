@@ -7,7 +7,7 @@ end
 
 gem("bcrypt", "~> 3.1.7")
 gem("jwt", "~> 2.1.0")
-gem("puma", "~> 5.5.1")
+gem("puma", "~> 5.6.2")
 gem("rails", "~> 5.2.3")
 gem("rubocop")
 gem("sqlite3")
