@@ -14,7 +14,7 @@ RSpec.describe PostsController, type: "controller" do
       Post.create!(@new_post)
       get :index
 
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(JSON.parse(response.body).size).to be 2
     end
   end
@@ -25,7 +25,7 @@ RSpec.describe PostsController, type: "controller" do
       get :show, params: { id: @post_id }
       body = JSON.parse(response.body)
 
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(body["title"]).to eq @post["title"]
       expect(body["content"]).to eq @post["content"]
     end

@@ -20,7 +20,7 @@ RSpec.describe CommentsController, type: "controller" do
       Post.find(@post_id).comments.create!(@new_comment)
       get :index, params: { post_id: @post_id }
 
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(JSON.parse(response.body).size).to be 2
     end
   end
@@ -31,7 +31,7 @@ RSpec.describe CommentsController, type: "controller" do
       get :show, params: { post_id: @post_id, id: @comment_id }
       body = JSON.parse(response.body)
 
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(body["name"]).to eq @comment["name"]
       expect(body["message"]).to eq @comment["message"]
     end
