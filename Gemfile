@@ -15,7 +15,7 @@ gem("sqlite3")
 group :development, :test do
   gem("byebug", platforms: [:mri, :mingw, :x64_mingw])
   gem("rspec-rails")
-  gem("simple_command")
+  gem("simple_command", "~> 0.1.0")
 end
 
 group :development do
