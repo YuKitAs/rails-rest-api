@@ -1,3 +1,5 @@
+![example workflow](https://github.com/YuKitAs/rails-rest-api/actions/workflows/rubyonrails.yml/badge.svg?branch=master)
+
 # Rails Rest API
 
 ## Project Setup
